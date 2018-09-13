@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, InputGroup, Input,
   Navbar, Nav, NavItem, NavLink,
-  NavbarBrand, Button } from 'reactstrap';
+  NavbarBrand } from 'reactstrap';
 
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -26,7 +26,7 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Col xs='3'>
-        <Navbar fluid>
+        <Navbar fluid={'true'}>
           <br/>
           <br/>
           <br/>
@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
           <InputGroup>
             <Input placeholder="Search" />
           </InputGroup>
-          <NavbarBrand href='/'>Recent Blog Posts</NavbarBrand>
+          <NavbarBrand>Recent Blog Posts</NavbarBrand>
           <Nav vertical justified>
             {this.state.recent_posts.map(post => (
               <NavItem key={post.id}>
@@ -42,12 +42,6 @@ class Sidebar extends React.Component {
               </NavItem>
             ))}
             <hr/>
-            <NavItem>
-              <Button color="primary">Archive</Button>
-            </NavItem>
-            <NavItem>
-              <NavLink href='#'>Newsletter</NavLink>
-            </NavItem>
           </Nav>
         </Navbar>
       </Col>
