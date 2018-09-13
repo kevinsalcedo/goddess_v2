@@ -42,6 +42,9 @@ class Header extends React.Component {
               <NavItem>
                 <NavLink href='/about'>About</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href='/blog'>Blog</NavLink>
+              </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   How To

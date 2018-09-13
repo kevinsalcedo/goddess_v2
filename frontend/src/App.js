@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Header from './Header.js';
-import Home from './Home.js'
-import About from './About.js';
+import Header from './components/Header.js';
+import Home from './components/Home.js'
+import About from './components/About.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
   render() {

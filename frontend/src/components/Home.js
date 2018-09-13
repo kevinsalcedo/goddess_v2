@@ -30,16 +30,6 @@ class Home extends React.Component {
             Here's the statement
           </p>
         </Jumbotron>
-
-        <div>
-        {this.state.posts.map(item => (
-          <div key={item.id}>
-            <h1>{item.title}</h1>
-            <span>{item.content}</span>
-          </div>
-        ))}
-      </div>
-
      </div>
       );
   }
