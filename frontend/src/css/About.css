@@ -1,0 +1,16 @@
+.face-card {
+  width: 100%;
+  height:auto;
+  object-fit: cover;
+  vertical-align: middle;
+  display: inline-block;
+  margin: 10px;
+}
+
+.facie {
+  padding: 5px;
+}
+
+body {
+  margin: 10px;
+}

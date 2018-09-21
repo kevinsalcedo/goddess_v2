@@ -12,6 +12,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../css/Header.css';
 
 class Header extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Header extends React.Component {
     return (
 
       <div>
-        <Navbar color='light' static={'top'} light expand='md'>
+        <Navbar className="navi" static={'top'} light expand='md'>
           <NavbarBrand href='/'>Goddess Climbing</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

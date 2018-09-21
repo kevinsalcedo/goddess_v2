@@ -1,9 +1,42 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+import Sidebar from './Sidebar.js';
+import { Container, Row, Col } from 'reactstrap';
 
+import 'bootstrap/dist/css/bootstrap.css';
 class PostDetail extends React.Component {
+
+  state = {
+    post: {}
+  };
+
+  async componentDidMount() {
+    try {
+      const postId = (this.props.location.pathname).split("/blog/").pop();
+      const res = await fetch(`http://127.0.0.1:8000/api/${postId}/`);
+      const post = await res.json();
+      this.setState({
+        post
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   render() {
-    return <h1>Detail</h1>;
+    const postContent = this.state.post.content;
+    return (
+      <Container>
+        <Row>
+          <Col>
+            <h1>{this.state.post.title}</h1>
+            <h4>{this.state.post.pub_date}</h4>
+            <hr />
+            <div dangerouslySetInnerHTML={{__html: postContent}}></div>
+          </Col>
+          <Sidebar />
+        </Row>
+    </Container>
+    );
   }
 }
 

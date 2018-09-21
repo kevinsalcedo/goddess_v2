@@ -1,10 +1,9 @@
 import React from 'react';
-import { Col, InputGroup, Input,
-  Navbar, Nav, NavItem, NavLink,
-  NavbarBrand } from 'reactstrap';
+import { Col, Navbar, Nav, NavItem, NavLink, NavbarBrand } from 'reactstrap';
 
 
 import 'bootstrap/dist/css/bootstrap.css';
+import '../css/Sidebar.css';
 
 class Sidebar extends React.Component {
   state = {
@@ -26,19 +25,12 @@ class Sidebar extends React.Component {
   render() {
     return (
       <Col xs='3'>
-        <Navbar fluid={'true'}>
-          <br/>
-          <br/>
-          <br/>
-          <br/>{/* Get rid of this shit */}
-          <InputGroup>
-            <Input placeholder="Search" />
-          </InputGroup>
-          <NavbarBrand>Recent Blog Posts</NavbarBrand>
+        <Navbar className="navi" fluid={'true'}>
+          <NavbarBrand className="text">Recent Blog Posts</NavbarBrand>
           <Nav vertical justified>
             {this.state.recent_posts.map(post => (
-              <NavItem key={post.id}>
-                <NavLink href={`/posts/${post.id}`}>{post.title}</NavLink>
+              <NavItem className="postName" key={post.id}>
+                <NavLink href={`/blog/${post.id}`}>{post.title}</NavLink>
               </NavItem>
             ))}
             <hr/>
