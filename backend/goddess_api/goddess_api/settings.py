@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'ckeditor',
     'goddess',
 ]
 
@@ -124,6 +125,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 REST_FRAMEWORK = {
         'DEFAULT_PERMISSION_CLASSES': [
             'rest_framework.permissions.AllowAny',
@@ -131,5 +134,6 @@ REST_FRAMEWORK = {
         }
 
 CORS_ORIGIN_WHITELIST = (
-        'localhost:3000/'
+        'localhost:3000',
+        '127.0.0.1:3000'
         )

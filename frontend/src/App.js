@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
 
-import Header from './Header.js';
-import Home from './Home.js'
-import About from './About.js';
+import Header from './components/Header';
+import Home from './components/Home'
+import About from './components/About';
+import PostList from './components/PostList';
+import PostDetail from './components/PostDetail';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
   render() {
@@ -15,7 +17,9 @@ class App extends Component {
         <div>
           <Header />
           <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/blog" component={PostList} />
+          <Route path="/blog/:postTitle" component={PostDetail} />
         </div>
       </BrowserRouter>
       );
