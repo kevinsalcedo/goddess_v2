@@ -13,8 +13,8 @@ import './css/App.css';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div>
+      <BrowserRouter >
+        <div className="App">
           <Header />
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />

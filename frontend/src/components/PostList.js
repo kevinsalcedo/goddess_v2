@@ -21,6 +21,8 @@ class PostList extends React.Component {
 
   render() {
     return (<Container>
+      <br/>
+      <br/>
       <Row>
         <Col>
           {
