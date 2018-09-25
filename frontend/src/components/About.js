@@ -8,7 +8,7 @@ import '../css/About.css';
 
 class About extends React.Component {
   render() {
-    return (<Container>
+    return (<Container className="content-body">
       <br/>
       <br/>
       <Row>

@@ -33,38 +33,21 @@ class Header extends React.Component {
   render() {
     return (<div>
       <Navbar className="navi" fluid={'top'} light="light" expand='md'>
-        <NavbarBrand href='/'>Goddess Climbing</NavbarBrand>
+        <NavbarBrand href='/' ><span className="header-item">Goddess Climbing</span></NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
         <Collapse isOpen={this.state.isOpen} navbar="navbar">
-          <Nav className='ml-auto' navbar="navbar">
+          <Nav className='ml-auto align-items-end' navbar="navbar">
             <NavItem>
-              <NavLink href='/'>Home</NavLink>
+              <NavLink href='/'><span className="header-item">Home</span></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/about'>About</NavLink>
+              <NavLink href='/about'><span className="header-item">About</span></NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='/blog'>Blog</NavLink>
+              <NavLink href='/blog'><span className="header-item">Blog</span></NavLink>
             </NavItem>
-            <UncontrolledDropdown nav="nav" inNavbar="inNavbar">
-              <DropdownToggle nav="nav" caret="caret">
-                How To
-              </DropdownToggle>
-              <DropdownMenu right="right">
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider="divider"/>
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
             <NavLink href='/contact'>
-              Contact
+              <span className="header-item">Contact</span>
             </NavLink>
           </Nav>
         </Collapse>

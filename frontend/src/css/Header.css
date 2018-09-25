@@ -1,5 +1,31 @@
 .navbar {
-  background-image: url('../assets/header-crop.jpg');
+  background-image: none;
   background-size: cover;
-  min-height: 20em;
+  background-color: white;
+  min-height: 5em;
+  border: 1px solid black;
+}
+
+.navbar-nav {
+  border:1px solid blue;
+}
+
+.header-item {
+  color: black;
+  border: 1px solid red;
+  width: 100%;
+  display: block;
+}
+
+/* Medium Devices */
+@media (min-width: 48em) {
+  .navbar {
+    background-image: url('../assets/header-crop.jpg');
+    min-height: 20em;
+  }
+
+  .header-item {
+    color: white;
+    border: 1px solid red;
+  }
 }
