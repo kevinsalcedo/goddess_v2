@@ -1,3 +1,5 @@
-.navi {
-  border-bottom: 1px solid #DCD1E8;
+.navbar {
+  background-image: url('../assets/header-crop.jpg');
+  background-size: cover;
+  min-height: 20em;
 }

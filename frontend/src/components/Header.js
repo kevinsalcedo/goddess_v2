@@ -14,6 +14,7 @@ import {
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Header.css';
+import header_shot from '../assets/header-crop.jpg';
 
 class Header extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Header extends React.Component {
   }
   render() {
     return (<div>
-      <Navbar className="navi" static={'top'} light="light" expand='md'>
+      <Navbar className="navi" fluid={'top'} light="light" expand='md'>
         <NavbarBrand href='/'>Goddess Climbing</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
         <Collapse isOpen={this.state.isOpen} navbar="navbar">

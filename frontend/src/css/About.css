@@ -1,7 +1,6 @@
 .face-card {
-  width: 100%;
-  height:auto;
-  object-fit: cover;
+  width: 75%%;
+  height: width;
   vertical-align: middle;
   display: inline-block;
   margin: 10px;
@@ -9,8 +8,10 @@
 
 .about_grace {
   padding: 5px;
+  border-radius: 50%;
 }
 
 body {
   margin: 10px;
 }
+  
