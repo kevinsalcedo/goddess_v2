@@ -3,32 +3,37 @@
   background-size: cover;
   background-color: white;
   min-height: 5em;
-  border: 1px solid black;
 }
 
 .navbar-nav {
-  border:1px solid blue;
+  position: relative;
+  right: 0;
+  bottom: 0;
 }
 
 .header-item {
-  color: black;
-  border: 1px solid red;
-  width: 100%;
-  padding-top: 0;
-  padding-bottom: 0;
-  vertical-align: bottom;
-  display: inline-block;
+  font-family: Agane;
 }
 
 /* Medium Devices */
-@media (min-width: 48em) {
-  .navbar {
-    background-image: url('../assets/header-crop.jpg');
-    min-height: 20em;
-  }
 
+@media (min-width: 48em) {
   .header-item {
     color: white;
-    border: 1px solid red;
+    font-family: Agane;
+  }
+
+  .header-item:hover {
+    border-bottom: 3px solid white;
+  }
+
+  .navbar {
+    background: transparent;
+  }
+  .header-img {
+    background-image: url('../assets/header-crop.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 20em;
   }
 }
