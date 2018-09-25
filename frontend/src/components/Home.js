@@ -1,16 +1,34 @@
 import React from 'react';
-import {Media} from 'reactstrap';
+import {Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import gear_shot from '../assets/Gear_Shot.jpg';
 import '../css/Home.css';
-
-import header_shot from '../assets/header-crop.jpg';
 
 class Home extends React.Component {
 
+  state = {
+    post: {}
+  };
+
+  async componentDidMount() {
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/api/8/`);
+      const post = await res.json();
+      this.setState({post});
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   render() {
-    return (<div>
-    </div>);
+    return (<Container className="content-body">
+      <h1 className="display-3">
+        {this.state.post.title}
+      </h1>
+      <hr/>
+      <div dangerouslySetInnerHTML={{
+          __html: this.state.post.content
+        }}></div>
+    </Container>);
   }
 }
 

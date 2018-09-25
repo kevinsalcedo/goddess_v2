@@ -20,9 +20,7 @@ class PostList extends React.Component {
   }
 
   render() {
-    return (<Container>
-      <br/>
-      <br/>
+    return (<Container className="content-body">
       <Row>
         <Col>
           {
@@ -37,7 +35,6 @@ class PostList extends React.Component {
             </Link>))
           }
         </Col>
-        <Sidebar/>
       </Row>
     </Container>)
   }

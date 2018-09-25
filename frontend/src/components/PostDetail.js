@@ -23,7 +23,7 @@ class PostDetail extends React.Component {
 
   render() {
     const postContent = this.state.post.content;
-    return (<Container>
+    return (<Container className="content-body">
       <Row>
         <Col>
           <Card className="Post">

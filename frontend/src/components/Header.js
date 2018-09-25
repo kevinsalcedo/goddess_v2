@@ -7,14 +7,9 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Header.css';
-import header_shot from '../assets/header-crop.jpg';
 
 class Header extends React.Component {
   constructor(props) {

@@ -9,8 +9,6 @@ import '../css/About.css';
 class About extends React.Component {
   render() {
     return (<Container className="content-body">
-      <br/>
-      <br/>
       <Row>
         <Col xs="3">
           <Card className="face-card my-auto rounded-circle">

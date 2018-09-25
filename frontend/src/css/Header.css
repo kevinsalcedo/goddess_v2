@@ -14,7 +14,10 @@
   color: black;
   border: 1px solid red;
   width: 100%;
-  display: block;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: bottom;
+  display: inline-block;
 }
 
 /* Medium Devices */
