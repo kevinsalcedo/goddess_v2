@@ -1,9 +1,9 @@
-a {
+.postLink {
   text-decoration: none;
   color: black;
 }
 
-a:hover {
+.postLink:hover {
   color: #524D6B;
   text-decoration: none;
   font-size: 105%;
@@ -11,5 +11,9 @@ a:hover {
 
 .pub-date {
   font-family: Poly;
+  font-size: small;
+}
+
+.desc {
   font-size: small;
 }

@@ -17,6 +17,8 @@
   font-family: Agane;
 }
 
+
+
 /* Medium Devices */
 
 @media (min-width: 48em) {
@@ -25,7 +27,11 @@
     font-family: Agane;
   }
 
-  .header-item:hover {
+  .header-brand:hover {
+    font-size: 105%;
+  }
+
+  .header-link:hover {
     border-bottom: 3px solid white;
   }
 

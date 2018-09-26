@@ -30,28 +30,28 @@ class Header extends React.Component {
   <div className="header-img">
     <Navbar navbar-fixed-top light expand='md'>
       <NavbarBrand href='/'>
-        <span className="header-item">Goddess Climbing</span>
+        <span className="header-item header-brand">Goddess Climbing</span>
       </NavbarBrand>
       <NavbarToggler onClick={this.toggle}/>
       <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className='ml-auto' navbar>
           <NavItem>
             <NavLink href='/'>
-              <span className="header-item">Home</span>
+              <span className="header-item header-link">Home</span>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink href='/about'>
-              <span className="header-item">About</span>
+              <span className="header-item header-link">About</span>
             </NavLink>
           </NavItem>
           <NavItem>
             <NavLink href='/blog'>
-              <span className="header-item">Blog</span>
+              <span className="header-item header-link">Blog</span>
             </NavLink>
           </NavItem>
           <NavLink href='/contact'>
-            <span className="header-item">Contact</span>
+            <span className="header-item header-link">Contact</span>
           </NavLink>
         </Nav>
       </Collapse>
