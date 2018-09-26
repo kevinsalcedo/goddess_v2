@@ -50,6 +50,11 @@ class Header extends React.Component {
               <span className="header-item header-link">Blog</span>
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink href='/photos'>
+              <span className="header-item header-link">Photos</span>
+            </NavLink>
+          </NavItem>
           <NavLink href='/contact'>
             <span className="header-item header-link">Contact</span>
           </NavLink>
