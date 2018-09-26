@@ -11,7 +11,7 @@ class Home extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/8/`);
+      const res = await fetch(`http://127.0.0.1:8000/api/blog/8/`);
       const post = await res.json();
       this.setState({post});
     } catch (e) {

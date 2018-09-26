@@ -19,7 +19,7 @@ class PostDetail extends React.Component {
   updateData = () => {
     try {
       const postId = (this.props.location.pathname).split("/blog/").pop();
-      fetch(`http://127.0.0.1:8000/api/${postId}/`)
+      fetch(`http://127.0.0.1:8000/api/blog/${postId}/`)
       .then((response) => {
         return response.json();
       })

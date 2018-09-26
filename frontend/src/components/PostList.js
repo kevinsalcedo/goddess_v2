@@ -16,7 +16,7 @@ class PostList extends React.Component {
 
   updateData = () => {
     try {
-      fetch(`http://127.0.0.1:8000/api/`)
+      fetch(`http://127.0.0.1:8000/api/blog/`)
       .then((response) => {
         return response.json();
       })

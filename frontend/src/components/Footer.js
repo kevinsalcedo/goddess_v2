@@ -27,7 +27,7 @@ class Footer extends React.Component {
   // Hit API for all posts - need to make just 5 most recent
   updateData = () => {
     try {
-      fetch(`http://127.0.0.1:8000/api/`).then((response) => {
+      fetch(`http://127.0.0.1:8000/api/blog/`).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({recent_posts: response});
