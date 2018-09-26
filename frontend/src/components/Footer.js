@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import {
   Col,
   Row,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+  FormText,
+  Button
 } from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -37,21 +43,32 @@ class Footer extends React.Component {
       <div className="footer">
         <hr />
         <Row>
-        <Col className="info-col-1">
-          <Row>
-            <h4 className="recents">Recent Posts</h4>
-          </Row>
+        <Col xs="12" md="4" className="info-col-1">
+          <h4 className="recents">Recent Posts</h4>
           {this.state.recent_posts.map(post =>
-            <Row key={post.id}>
+            <div key={post.id}>
               <Link className="recentLink" to={{pathname: `/blog/${post.id}`}}>{post.title}</Link>
-               </Row>
+            </div>
           )}
         </Col>
-        <Col className="info-col-2">
-
+        <Col xs="12" md="8" className="info-col-2">
+          <h4 className="recents">Sign Up for our Newsletter</h4>
+          <Form>
+            <FormGroup>
+              <Label for="firstname">First Name</Label>
+              <Input type="text" name="first" id="firstname" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="lastname">Last Name</Label>
+              <Input type="text" name="last" id="lastname" />
+            </FormGroup>
+            <FormGroup>
+              <Label for="email">E-mail</Label>
+              <Input type="email" name="email" id="email" />
+            </FormGroup>
+            <Button>Submit</Button>
+          </Form>
         </Col>
-        <Col className="info-col-3">
-       </Col>
       </Row>
       </div>
     );

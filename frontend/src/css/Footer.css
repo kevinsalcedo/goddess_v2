@@ -1,20 +1,22 @@
 /* Mobile devices */
 
 .footer {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   padding: 2%;
 }
 
 .info-col-1 {
-  border:1px solid red;
+  /*border:1px solid red;*/
+  margin-bottom: 2%;
 }
 
 .info-col-2 {
-  border:1px solid blue;
+  /*border:1px solid blue;*/
+  margin-bottom: 2%;
 }
 
 .info-col-3 {
-  border:1px solid purple;
+  /*border:1px solid purple;*/
 }
 
 .col-xs-8 {
@@ -40,19 +42,20 @@
 
 @media (min-width: 48em) {
   .footer {
-
+    padding: 2%;
   }
 
   .info-col-1 {
-    border:1px solid yellow;
+    /*border:1px solid yellow;*/
+    z-index: 1;
   }
 
   .info-col-2 {
-    border:1px solid pink;
+    /*border:1px solid pink;*/
   }
 
   .info-col-2 {
-    border:1px solid orange;
+    /*(border:1px solid orange;*/
   }
 
   .recents {
