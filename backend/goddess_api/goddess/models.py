@@ -26,3 +26,13 @@ class Comment(models.Model):
 
     def was_published_recently(self):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+class File(models.Model):
+    file = models.FileField(blank=False, null=False)
+    location = models.CharField(max_length=25)
+    author = models.CharField(max_length=25)
+    caption = models.CharField(max_length=100)
+    visible = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.caption
