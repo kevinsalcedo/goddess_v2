@@ -6,6 +6,7 @@ from .serializers import PostSerializer, FileSerializer
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 
 # Create your views here.
@@ -31,6 +32,8 @@ class FileView(APIView):
 class ListFile(generics.ListCreateAPIView):
     queryset = File.objects.all()
     serializer_class = FileSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('visible',)
 
 class DetailFile(generics.RetrieveUpdateDestroyAPIView):
     queryset = File.objects.all()
