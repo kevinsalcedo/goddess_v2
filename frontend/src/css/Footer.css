@@ -1,0 +1,61 @@
+/* Mobile devices */
+
+.footer {
+  border: 1px solid black;
+  padding: 2%;
+}
+
+.info-col-1 {
+  border:1px solid red;
+}
+
+.info-col-2 {
+  border:1px solid blue;
+}
+
+.info-col-3 {
+  border:1px solid purple;
+}
+
+.col-xs-8 {
+  display: inline-block;
+}
+
+.recents {
+  border-bottom: 1px solid black;
+}
+
+.recentLink {
+  text-decoration: none;
+  color: black;
+}
+
+.recentLink:hover {
+  text-decoration: none;
+  color: #524D6B;
+  font-style: italic;
+}
+
+/* Medium+ Devices */
+
+@media (min-width: 48em) {
+  .footer {
+
+  }
+
+  .info-col-1 {
+    border:1px solid yellow;
+  }
+
+  .info-col-2 {
+    border:1px solid pink;
+  }
+
+  .info-col-2 {
+    border:1px solid orange;
+  }
+
+  .recents {
+
+  }
+}

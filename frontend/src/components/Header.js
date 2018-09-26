@@ -28,7 +28,7 @@ class Header extends React.Component {
   render() {
     return (
   <div className="header-img">
-    <Navbar navbar-fixed-top light expand='md'>
+    <Navbar navbar-fixed-top="true" light expand='md'>
       <NavbarBrand href='/'>
         <span className="header-item header-brand">Goddess Climbing</span>
       </NavbarBrand>

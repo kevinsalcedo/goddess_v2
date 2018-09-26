@@ -1,6 +1,5 @@
 import React from 'react';
 import {Container, Row, Col, Card, CardImg} from 'reactstrap';
-import Sidebar from './Sidebar.js';
 import about_grace from '../assets/About_Grace.jpg';
 
 import 'bootstrap/dist/css/bootstrap.css';

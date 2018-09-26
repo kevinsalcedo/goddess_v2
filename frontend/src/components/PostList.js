@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Container, Col, Row} from 'reactstrap';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
-import Sidebar from './Sidebar';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostList.css';
 
@@ -12,10 +11,19 @@ class PostList extends React.Component {
   }
 
   async componentDidMount() {
+    this.updateData();
+  }
+
+  updateData = () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/');
-      const posts = await res.json();
-      this.setState({posts});
+      fetch(`http://127.0.0.1:8000/api/`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        this.setState({posts: response});
+      });
+      window.scrollTo(0,0);
     } catch (e) {
       console.log(e);
     }

@@ -1,25 +1,45 @@
 import React from 'react';
-import Sidebar from './Sidebar.js';
 import {Container, Row, Col, Card} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostDetail.css';
 class PostDetail extends React.Component {
 
+
+
   state = {
     post: {}
   };
 
   async componentDidMount() {
+    this.updateData();
+  }
+
+  // Hit API for the appropriate post
+  updateData = () => {
     try {
       const postId = (this.props.location.pathname).split("/blog/").pop();
-      const res = await fetch(`http://127.0.0.1:8000/api/${postId}/`);
-      const post = await res.json();
-      this.setState({post});
+      fetch(`http://127.0.0.1:8000/api/${postId}/`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        this.setState({post: response});
+      });
+      window.scrollTo(0,0);
     } catch (e) {
       console.log(e);
     }
   }
+
+  // Extract the new post id from the url
+  // If it does not equal the current state, reload.
+  componentDidUpdate() {
+    if(this.state.post.id !== parseInt((this.props.location.pathname).split("/blog/").pop())) {
+      this.updateData();
+    }
+  }
+
 
   render() {
     const postContent = this.state.post.content;
@@ -35,7 +55,6 @@ class PostDetail extends React.Component {
               }}></div>
           </Card>
         </Col>
-        {/*}<Sidebar/>*/}
       </Row>
     </Container>);
   }
