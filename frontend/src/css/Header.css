@@ -3,6 +3,8 @@
   background-size: cover;
   background-color: white;
   min-height: 5em;
+  box-shadow: 0 0 5px 0 gray;
+
 }
 
 .navbar-nav {
@@ -29,11 +31,13 @@
 
   .navbar {
     background: transparent;
+    box-shadow: 0 0 0 0;
   }
   .header-img {
     background-image: url('../assets/header-crop.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 20em;
+    box-shadow: 0 0 5px 0 gray;
   }
 }

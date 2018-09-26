@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {Container, Col, Row} from 'reactstrap';
 import Sidebar from './Sidebar';
 import 'bootstrap/dist/css/bootstrap.css';
+import '../css/PostList.css';
 
 class PostList extends React.Component {
   state = {
@@ -28,8 +29,7 @@ class PostList extends React.Component {
                 pathname: `/blog/${post.id}`
               }} key={post.id}>
               <div>
-                <h2>{post.title}</h2>
-                <p>{post.pub_date}</p>
+                <h2>{post.title} <span className='pub-date'>{post.pub_date}</span></h2>
                 <hr/>
               </div>
             </Link>))

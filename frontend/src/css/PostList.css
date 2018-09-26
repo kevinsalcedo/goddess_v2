@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #524D6B;
+  text-decoration: none;
+  font-size: 105%;
+}
+
+.pub-date {
+  font-family: Poly;
+  font-size: small;
+}
