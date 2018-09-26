@@ -30,7 +30,7 @@ class PostDetail extends React.Component {
             <h1>{this.state.post.title}</h1>
             <h4>{this.state.post.pub_date}</h4>
             <hr/>
-            <div dangerouslySetInnerHTML={{
+            <div className="post-content" dangerouslySetInnerHTML={{
                 __html: postContent
               }}></div>
           </Card>

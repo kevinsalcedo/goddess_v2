@@ -3,3 +3,13 @@
   background-color: #F7F5FA;
   box-shadow: 0 3px 3px 0 gray;
 }
+
+.post-content a {
+  text-decoration: none;
+  color: #587D71;
+}
+
+.post-content a:hover {
+  text-decoration: none;
+  color: #ACC8B9;
+}
