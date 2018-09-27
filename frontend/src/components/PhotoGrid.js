@@ -14,7 +14,7 @@ class PhotoGrid extends React.Component {
 
   updateData = () => {
     try {
-      fetch(`http://127.0.0.1:8000/api/photos/`)
+      fetch(`http://127.0.0.1:8000/api/photos/?visible=true`)
       .then((response) => {
         return response.json();
       })
