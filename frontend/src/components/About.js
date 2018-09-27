@@ -20,7 +20,9 @@ class About extends React.Component {
       </Row>
       <br/>
       <Row>
-        <p className="lead">My name is Grace Cline and I live in Austin,Texas. Besides running Goddess Climbing, I work full time at a climbing gym. When I’m not climbing, you can find me riding my bike, exploring local hiking trails or playing guitar. I started climbing around the age of 15 and fell in love immediately.</p>
+        <p className="lead">
+          My name is Grace Cline and I live in Austin,Texas. Besides running Goddess Climbing, I work full time at a climbing gym. When I’m not climbing, you can find me  riding my bike, exploring local hiking trails or playing guitar. I started climbing around the age of 15 and fell in love immediately.
+        </p>
       </Row>
       <Row>
         <p className="lead">
