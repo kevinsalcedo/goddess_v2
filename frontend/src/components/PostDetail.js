@@ -35,7 +35,7 @@ class PostDetail extends React.Component {
   // Extract the new post id from the url
   // If it does not equal the current state, reload.
   componentDidUpdate() {
-    if(this.state.post.id !== parseInt((this.props.location.pathname).split("/blog/").pop())) {
+    if(this.state.post.id !== parseInt((this.props.location.pathname).split("/blog/").pop(), 10)) {
       this.updateData();
     }
   }

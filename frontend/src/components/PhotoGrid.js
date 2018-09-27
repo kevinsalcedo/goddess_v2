@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from 'reactstrap';
+import {Container, Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, CardColumns } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PhotoGrid.css';
 
@@ -28,13 +28,22 @@ class PhotoGrid extends React.Component {
   }
   render() {
     if (this.state.photos.length > 0) {
-      console.log(this.state.photos);
-      return (<Container className="content-body">
-
+      return (
+        <Container className="content-body">
+          <h1>User Submitted Photos</h1>
+        <CardColumns className="photo_grid">
             {this.state.photos.map(photo => (
-              <p>hello!</p>
+              <Card className="photo_card" key={photo.id}>
+                <CardImg className="photo_img" top src={photo.file} />
+                <CardBody>
+                  <CardTitle>Location: {photo.location}</CardTitle>
+                  <CardSubtitle>Author: {photo.author}</CardSubtitle>
+                  <CardText>{photo.caption}</CardText>
+                </CardBody>
+              </Card>
             ))}
-          </Container>
+          </CardColumns>
+        </Container>
           );
     }
     return (<Container className="content-body">
