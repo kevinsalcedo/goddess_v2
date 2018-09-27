@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, CardColumns } from 'reactstrap';
+import Error404 from './error404';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PhotoGrid.css';
 
@@ -47,7 +48,7 @@ class PhotoGrid extends React.Component {
           );
     }
     return (<Container className="content-body">
-      <p>nada</p>
+      <Error404 />
     </Container>
     );
   }
