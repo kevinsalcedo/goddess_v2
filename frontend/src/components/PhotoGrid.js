@@ -48,7 +48,6 @@ handleOpen(photo) {
   if (!this.state.isOpen) {
     this.setState({currPhoto: photo}, () =>
       {
-        console.log(this.state.currPhoto);
         this.setState({isOpen: true});
       });
   }
@@ -79,7 +78,10 @@ handleOpen(photo) {
                 {isOpen &&
                   <Lightbox
                   mainSrc={currPhoto.file}
-                  onCloseRequest={() => {this.handleClose()}} />
+                  onCloseRequest={() => {this.handleClose()}}
+                  imagePadding={50}
+                  imageCaption={currPhoto.caption}
+                  />
                 }
               </Card>))
             }
