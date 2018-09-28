@@ -28,7 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
 'goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com',
 'www.goddessclimbing.com',
-'goddessclimbing.com'
+'goddessclimbing.com',
+'127.0.0.1',
+'localhost'
 ]
 
 
