@@ -44,12 +44,15 @@ class PhotoGrid extends React.Component {
     }
   }
 
-  handleOpen(photo) {
-    this.setState({currPhoto: photo}, () => {
-      if(!this.state.isOpen)
+handleOpen(photo) {
+  if (!this.state.isOpen) {
+    this.setState({currPhoto: photo}, () =>
+      {
+        console.log(this.state.currPhoto);
         this.setState({isOpen: true});
-    });
+      });
   }
+}
 
   handleClose() {
     this.setState({isOpen: false}, () => {
