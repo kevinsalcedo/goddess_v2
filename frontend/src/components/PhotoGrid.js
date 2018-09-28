@@ -10,8 +10,7 @@ import {
   CardColumns
 } from 'reactstrap';
 import Error404 from './error404';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import ImgsViewer from 'react-images-viewer';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PhotoGrid.css';
 
@@ -36,7 +35,7 @@ class PhotoGrid extends React.Component {
 
   updateData = () => {
     try {
-      fetch(local).then((response) => {
+      fetch(api).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});
@@ -78,14 +77,9 @@ handleOpen(photo) {
                   <CardText>{photo.caption}</CardText>
                 </CardBody>
 
-                {isOpen &&
-                  <Lightbox
-                  mainSrc={currPhoto.file}
-                  onCloseRequest={() => {this.handleClose()}}
-                  imagePadding={50}
-                  imageCaption={currPhoto.caption}
-                  />
-                }
+                <ImgsViewer imgs={[{src: currPhoto.file, caption: currPhoto.caption}]}
+                  isOpen={this.state.isOpen}
+                  onClose={() => {this.handleClose()}} />
               </Card>))
             }
       </CardColumns>

@@ -19,7 +19,7 @@ class PostList extends React.Component {
 
   updateData = () => {
     try {
-      fetch(local)
+      fetch(api)
       .then((response) => {
         return response.json();
       })
