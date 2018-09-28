@@ -5,6 +5,9 @@ import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostList.css';
 
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/';
+const local = 'http://127.0.0.1:8000/api/blog/';
+
 class PostList extends React.Component {
   state = {
     posts: []
@@ -16,7 +19,7 @@ class PostList extends React.Component {
 
   updateData = () => {
     try {
-      fetch(`http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/`)
+      fetch(local)
       .then((response) => {
         return response.json();
       })

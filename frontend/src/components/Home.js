@@ -3,6 +3,9 @@ import {Container} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Home.css';
 
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/8/'
+const local = 'http://127.0.0.1:8000/api/blog/8/';
+
 class Home extends React.Component {
 
   state = {
@@ -11,7 +14,7 @@ class Home extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(`http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/8/`);
+      const res = await fetch(local);
       const post = await res.json();
       this.setState({post});
     } catch (e) {

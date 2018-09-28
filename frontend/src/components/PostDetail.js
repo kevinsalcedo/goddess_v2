@@ -3,9 +3,13 @@ import {Container, Row, Col, Card} from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostDetail.css';
+
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/';
+const local = 'http://127.0.0.1:8000/api/blog/';
+
+
+
 class PostDetail extends React.Component {
-
-
 
   state = {
     post: {}
@@ -19,7 +23,7 @@ class PostDetail extends React.Component {
   updateData = () => {
     try {
       const postId = (this.props.location.pathname).split("/blog/").pop();
-      fetch(`http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/${postId}/`)
+      fetch(local + `${postId}/`)
       .then((response) => {
         return response.json();
       })

@@ -12,6 +12,8 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Footer.css';
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/'
+const local = 'http://127.0.0.1:8000/api/blog/';
 
 class Footer extends React.Component {
 
@@ -26,7 +28,7 @@ class Footer extends React.Component {
   // Hit API for all posts - need to make just 5 most recent
   updateData = () => {
     try {
-      fetch(`http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/`).then((response) => {
+      fetch(local).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({recent_posts: response});

@@ -15,6 +15,9 @@ import 'react-image-lightbox/style.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PhotoGrid.css';
 
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/photos/'
+const local = 'http://127.0.0.1:8000/api/photos/';
+
 class PhotoGrid extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +36,7 @@ class PhotoGrid extends React.Component {
 
   updateData = () => {
     try {
-      fetch(`http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/photos/?visible=true`).then((response) => {
+      fetch(local).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});
