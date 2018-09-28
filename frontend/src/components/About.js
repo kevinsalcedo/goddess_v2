@@ -21,22 +21,17 @@ class About extends React.Component {
       <br/>
       <Row>
         <p className="lead">
-          My name is Grace Cline and I live in Austin,Texas. Besides running Goddess Climbing, I work full time at a climbing gym. When I’m not climbing, you can find me  riding my bike, exploring local hiking trails or playing guitar. I started climbing around the age of 15 and fell in love immediately.
-        </p>
+My name is Grace Cline and I live in Austin,Texas. I started climbing around the age of 15 and fell in love immediately with the sport. Because of the way that climbing helped me develop a strong mind-body connection, it was influential in my recovery from an eating disorder. It helped me find my strength and shaped my sense of wellness.
+</p>
       </Row>
       <Row>
         <p className="lead">
-          Prior to getting into the sport, I spent about a year in treatment for an eating disorder and had not been allowed to exercise. Climbing was influential in my recovery, as it helped me develop a strong mind-body connection that I hadn’t had before.
-        </p>
+I created Goddess Climbing to create a supportive community where women can build each other up, offer advice, and connect with one another. Because the climbing world can veer on the hyper-masculine, I believe there’s a need for women’s only climbing spaces. My goal is to encourage more women to join the sport and I will remain open to growth and feedback during this process. This is our community and we’re building it together.
+</p>
       </Row>
       <Row>
         <p className="lead">
-          Before leaving college, I helped develop the university’s climb team and began recognizing the need for a women’s only climbing space. At the gym where my team practiced, I often heard demeaning comments about the way women were dressed or climbing. I even noticed how my teammates would treat me differently than the males on the team-- often holding me to lower standards. I tried to get other females to join the team but noticed that most would go to one practice and then feel intimidated by the over-masculinity and never show up again. Though this gym was somewhat an extreme case, it signaled to me an issue that permeates climbing culture worldwide; which is the idea that men are innately stronger or better than women, and that they know what they’re doing better than women do.
-        </p>
-      </Row>
-      <Row>
-        <p className="lead">
-          I created Goddess Climbing to encourage more women to join the sport, and to create a supportive community where we can build each other up, offer advice, and connect with one another. My goal is to remain open to growth and feedback and help fill whatever gap still exists between genders in the climbing world. You can write to me by following this link.
+When I’m not running Goddess Climbing, I’m working full time at a climbing gym in Austin, riding my bike, exploring local hiking trails or playing guitar. But, I’d love to hear from you. You can write me by following the link below.
         </p>
       </Row>
     </Container>);
