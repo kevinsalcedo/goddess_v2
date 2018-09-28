@@ -9,7 +9,7 @@ class About extends React.Component {
   render() {
     return (<Container className="content-body">
       <Row>
-        <Col xs="3">
+        <Col xs="4">
           <Card className="face-card my-auto rounded-circle">
             <CardImg className="about_grace rounded-circle" src={about_grace} alt="About Grace"/>
           </Card>

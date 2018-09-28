@@ -24,4 +24,9 @@
     box-shadow: 0 1px 1px 0 gray;
   }
 
+  .modal_img {
+    width: 75%;
+    height: auto;
+  }
+
 }
