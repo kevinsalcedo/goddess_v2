@@ -25,7 +25,11 @@ SECRET_KEY = '0bb_v55=fe^!x%rnx-64*@7%)o*)gjocrru$(!=^o%sfm(x3z&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com']
+ALLOWED_HOSTS = [
+'goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com',
+'www.goddessclimbing.com',
+'goddessclimbing.com'
+]
 
 
 # Application definition
@@ -135,12 +139,7 @@ REST_FRAMEWORK = {
         'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
         }
 
-CORS_ORIGIN_WHITELIST = (
-        'localhost:3000',
-        '127.0.0.1:3000',
-        'http://www.goddessclimbing.com',
-        'http://goddessclimbing.com'
-        )
+CORS_ORIGIN_ALLOW_ALL = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
