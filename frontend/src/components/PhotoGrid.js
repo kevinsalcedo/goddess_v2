@@ -33,7 +33,7 @@ class PhotoGrid extends React.Component {
 
   updateData = () => {
     try {
-      fetch(`http://127.0.0.1:8000/api/photos/?visible=true`).then((response) => {
+      fetch(`http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/photos/?visible=true`).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});

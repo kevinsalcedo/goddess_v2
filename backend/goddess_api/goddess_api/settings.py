@@ -25,7 +25,7 @@ SECRET_KEY = '0bb_v55=fe^!x%rnx-64*@7%)o*)gjocrru$(!=^o%sfm(x3z&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
