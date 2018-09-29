@@ -14,8 +14,8 @@ import ImgsViewer from 'react-images-viewer';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PhotoGrid.css';
 
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/photos/'
-const local = 'http://127.0.0.1:8000/api/photos/';
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/photos/?visible=true'
+const local = 'http://127.0.0.1:8000/api/photos/?visible=true';
 
 class PhotoGrid extends React.Component {
   constructor(props) {
@@ -70,14 +70,16 @@ handleOpen(photo) {
           {
             all_photos.map(photo => (
               <Card key={photo.id} className="photo_card" onClick={() => {this.handleOpen(photo)}}>
-                <CardImg className="photo_img" top src={photo.file} />
+                <CardImg className="photo_img" top src={photo.src} />
                 <CardBody>
-                  <CardTitle>Location: {photo.location}</CardTitle>
+                  <CardTitle>{photo.climber} @ {photo.location}</CardTitle>
                   <CardSubtitle>Author: {photo.author}</CardSubtitle>
                   <CardText>{photo.caption}</CardText>
                 </CardBody>
 
-                <ImgsViewer imgs={[{src: currPhoto.file, caption: currPhoto.caption}]}
+                <ImgsViewer imgs={[{src: currPhoto.src, caption: currPhoto.caption}]}
+                  showImgCount={false}
+                  width={960}
                   isOpen={this.state.isOpen}
                   onClose={() => {this.handleClose()}} />
               </Card>))

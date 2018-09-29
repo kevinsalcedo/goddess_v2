@@ -28,10 +28,11 @@ class Comment(models.Model):
         return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 class File(models.Model):
-    file = models.FileField(blank=False, null=False)
-    location = models.CharField(max_length=25)
-    author = models.CharField(max_length=25)
-    caption = models.CharField(max_length=100)
+    src = models.ImageField(blank=False)
+    climber = models.CharField(max_length=30, null=True)
+    location = models.CharField(max_length=30, null=True)
+    author = models.CharField(max_length=30, null=True)
+    caption = models.CharField(max_length=150, null=True)
     visible = models.BooleanField(default=False)
 
     def __str__(self):

@@ -23,7 +23,8 @@ class FileSerializer(serializers.ModelSerializer):
     class Meta:
         fields = (
         'id',
-        'file',
+        'src',
+        'climber',
         'location',
         'author',
         'caption',
