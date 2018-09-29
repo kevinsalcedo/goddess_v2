@@ -7,7 +7,8 @@ class PostSerializer(serializers.ModelSerializer):
                 'id',
                 'title',
                 'content',
-                'pub_date'
+                'pub_date',
+                'visible'
                 )
         model = Post
 

@@ -13,6 +13,8 @@ from rest_framework import status
 class ListPost(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('title','pub_date', 'visible')
 
 class DetailPost(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()

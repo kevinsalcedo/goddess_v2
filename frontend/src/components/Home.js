@@ -28,7 +28,7 @@ class Home extends React.Component {
         {this.state.post.title}
       </h1>
       <hr/>
-      <div dangerouslySetInnerHTML={{
+      <div className="lead" dangerouslySetInnerHTML={{
           __html: this.state.post.content
         }}></div>
     </Container>);
