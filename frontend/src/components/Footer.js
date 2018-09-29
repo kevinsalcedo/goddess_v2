@@ -12,10 +12,15 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Footer.css';
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/'
-const local = 'http://127.0.0.1:8000/api/blog/';
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true&ordering=-pub_date'
+const local = 'http://127.0.0.1:8000/api/blog/?visible=true&ordering=-pub_date';
 
 class Footer extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.formatDate = this.formatDate.bind(this);
+  }
 
   state = {
     recent_posts: []
@@ -39,6 +44,11 @@ class Footer extends React.Component {
     }
   }
 
+  formatDate(date) {
+    let d = new Date(date);
+    return d.toLocaleDateString("en-US", {month: "long", day: "numeric"})
+  }
+
   render() {
     return (
       <div className="footer">
@@ -48,7 +58,7 @@ class Footer extends React.Component {
           <h4 className="recents">Recent Posts</h4>
           {this.state.recent_posts.map(post =>
             <div key={post.id}>
-              <Link className="recentLink" to={{pathname: `/blog/${post.id}`}}>{post.title}</Link>
+              <Link className="recentLink" to={{pathname: `/blog/${post.id}`}}>{post.title} | {this.formatDate(post.pub_date)}</Link>
             </div>
           )}
         </Col>

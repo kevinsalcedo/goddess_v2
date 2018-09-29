@@ -42,6 +42,7 @@ class PostList extends React.Component {
                 pathname: `/blog/${post.id}`
               }} key={post.id}>
               <div>
+
                 <h2>{post.title} <span className='pub-date'>{post.pub_date}</span></h2>
                 <HTMLEllipsis className="desc"
                   unsafeHTML={post.content}

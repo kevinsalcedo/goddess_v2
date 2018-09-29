@@ -7,14 +7,18 @@ from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework import status
 
 # Create your views here.
 class ListPost(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    filter_backends = (DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter,)
     filter_fields = ('title','pub_date', 'visible')
+    search_fields = ('title',)
+    ordering_fields = ('title', 'pub_date',)
+    ordering = ('pub_date',)
 
 class DetailPost(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
