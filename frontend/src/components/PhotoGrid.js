@@ -25,8 +25,7 @@ class PhotoGrid extends React.Component {
       currPhoto: {},
       isOpen: false
     };
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this.handleViewer = this.handleViewer.bind(this);
   }
 
   async componentDidMount() {
@@ -46,20 +45,16 @@ class PhotoGrid extends React.Component {
     }
   }
 
-handleOpen(photo) {
-  if (!this.state.isOpen) {
-    this.setState({currPhoto: photo}, () =>
-      {
-        this.setState({isOpen: true});
+  handleViewer(photo) {
+    this.setState({
+      currPhoto: photo
+    }, () => {
+      this.setState({
+        isOpen: !this.state.isOpen
       });
-  }
-}
-
-  handleClose() {
-    this.setState({isOpen: false}, () => {
-      this.setState({currPhoto: {}})
     });
   }
+
   render() {
     const {all_photos, isOpen, currPhoto} = this.state;
 
@@ -68,24 +63,30 @@ handleOpen(photo) {
         <h1>User Submitted Photos</h1>
         <CardColumns className="photo_grid">
           {
-            all_photos.map(photo => (
-              <Card key={photo.id} className="photo_card" onClick={() => {this.handleOpen(photo)}}>
-                <CardImg className="photo_img" top src={photo.src} />
-                <CardBody>
-                  <CardTitle>{photo.climber} @ {photo.location}</CardTitle>
-                  <CardSubtitle>Author: {photo.author}</CardSubtitle>
-                  <CardText>{photo.caption}</CardText>
-                </CardBody>
+            all_photos.map(photo => (<Card key={photo.id} className="photo_card" onClick={() => {
+                this.handleViewer(photo)
+              }}>
+              <CardImg className="photo_img" top src={photo.src}/>
+              <CardBody>
+                <CardTitle>{photo.climber}
+                  @ {photo.location}</CardTitle>
+                <CardSubtitle>Author: {photo.author}</CardSubtitle>
+                <CardText>{photo.caption}</CardText>
+              </CardBody>
 
-                <ImgsViewer imgs={[{src: currPhoto.src, caption: currPhoto.caption}]}
-                  showImgCount={false}
-                  width={960}
-                  isOpen={this.state.isOpen}
-                  onClose={() => {this.handleClose()}} />
-              </Card>))
-            }
-      </CardColumns>
-    </Container>); } return (<Container className="content-body">
+              <ImgsViewer imgs={[{
+                    src: currPhoto.src,
+                    caption: currPhoto.caption
+                  }
+                ]} showImgCount={false} width={960} isOpen={this.state.isOpen} onClose={() => {
+                  this.handleViewer(photo)
+                }}/>
+            </Card>))
+          }
+        </CardColumns>
+      </Container>);
+    }
+    return (<Container className="content-body">
       <Error404/>
     </Container>);
   }
