@@ -22,7 +22,7 @@ class PhotoGrid extends React.Component {
     super(props);
     this.state = {
       all_photos: [],
-      currPhoto: {},
+      currPhoto: {src: "", caption: ""},
       isOpen: false
     };
     this.handleViewer = this.handleViewer.bind(this);
