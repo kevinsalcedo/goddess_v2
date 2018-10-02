@@ -7,7 +7,18 @@ import {
   CardText,
   CardTitle,
   CardSubtitle,
-  CardColumns
+  CardColumns,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  Label,
+  Input
 } from 'reactstrap';
 import Error404 from './error404';
 import ImgsViewer from 'react-images-viewer';
@@ -23,7 +34,8 @@ class PhotoGrid extends React.Component {
     this.state = {
       all_photos: [],
       currPhoto: {src: "", caption: ""},
-      isOpen: false
+      isOpen: false,
+      modalOpen: false
     };
     this.handleViewer = this.handleViewer.bind(this);
   }
@@ -60,7 +72,14 @@ class PhotoGrid extends React.Component {
 
     if (all_photos.length > 0) {
       return (<Container className="content-body">
-        <h1>User Submitted Photos</h1>
+        <Row>
+          <Col xs="12" md="9">
+            <h1>User Submitted Photos</h1>
+          </Col>
+          <Col xs="12" md="3">
+            <Button onClick={() => {this.setState({modalOpen: true})}}>Upload</Button>
+          </Col>
+        </Row>
         <CardColumns className="photo_grid">
           {
             all_photos.map(photo => (<Card key={photo.id} className="photo_card" onClick={() => {
@@ -84,6 +103,40 @@ class PhotoGrid extends React.Component {
             </Card>))
           }
         </CardColumns>
+
+        <Modal isOpen={this.state.modalOpen}>
+          <ModalHeader>
+            Submit Your Own Photo
+          </ModalHeader>
+          <ModalBody>
+            <Form>
+              <FormGroup>
+                <Label for="SRC">Image</Label>
+                <Input type="file" name="src" id="SRC"/>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CLIMBER">Climber</Label>
+                <Input type="text" name="climber" id="CLIMBER"/>
+              </FormGroup>
+              <FormGroup>
+                <Label for="LOCATION">Location</Label>
+                <Input type="text" name="location" id="LOCATION"/>
+              </FormGroup>
+              <FormGroup>
+                <Label for="CAPTION">Climber</Label>
+                <Input type="textarea" name="caption" id="CAPTION"/>
+              </FormGroup>
+            </Form>
+          </ModalBody>
+          <ModalFooter>
+            <Col>
+              <Button>Submit</Button>
+            </Col>
+            <Col>
+              <Button onClick={() => {this.setState({modalOpen: false})}}>Cancel</Button>
+            </Col>
+          </ModalFooter>
+        </Modal>
       </Container>);
     }
     return (<Container className="content-body">

@@ -63,22 +63,6 @@ class Footer extends React.Component {
           )}
         </Col>
         <Col xs="12" md="8" className="info-col-2">
-          {/* <h4 className="recents">Sign Up for our Newsletter</h4>
-          <Form>
-            <FormGroup>
-              <Label for="firstname">First Name</Label>
-              <Input type="text" name="first" id="firstname" />
-            </FormGroup>
-            <FormGroup>
-              <Label for="lastname">Last Name</Label>
-              <Input type="text" name="last" id="lastname" />
-            </FormGroup>
-            <FormGroup>
-              <Label for="email">E-mail</Label>
-              <Input type="email" name="email" id="email" />
-            </FormGroup>
-            <Button>Submit</Button>
-          </Form> */}
           <h4 className="recents">Sign Up for Our Newsletter</h4>
           <Form action="https://goddessclimbing.us19.list-manage.com/subscribe/post?u=a3ef7908a1a1d9b51024e6291&amp;id=8a42b55b15" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
             <FormGroup>
