@@ -80,7 +80,7 @@ class Footer extends React.Component {
             <Button>Submit</Button>
           </Form> */}
           <h4 className="recents">Sign Up for Our Newsletter</h4>
-          <Form action="https://goddessclimbing.us19.list-manage.com/subscribe/post?u=a3ef7908a1a1d9b51024e6291&amp;id=8a42b55b15" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <Form action="https://goddessclimbing.us19.list-manage.com/subscribe/post?u=a3ef7908a1a1d9b51024e6291&amp;id=8a42b55b15" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
             <FormGroup>
               <Label for="mce-EMAIL">Email Address</Label>
               <Input type="email" name="EMAIL" id="mce-EMAIL"/>
@@ -93,8 +93,8 @@ class Footer extends React.Component {
               <Label for="mce-LNAME">Last Name</Label>
               <Input type="text" name="LNAME" id="mce-LNAME"/>
             </FormGroup>
-            <div hidden="true" aria-hidden="true"><input type="text" name="b_a3ef7908a1a1d9b51024e6291_8a42b55b15" tabindex="-1" value=""/></div>
-            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/></div>
+            <div hidden aria-hidden><input type="text" name="b_a3ef7908a1a1d9b51024e6291_8a42b55b15" tabIndex="-1" value=""/></div>
+            <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button"/></div>
           </Form>
         </Col>
       </Row>
