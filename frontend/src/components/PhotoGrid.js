@@ -87,12 +87,10 @@ class PhotoGrid extends React.Component {
   /* Upload form handler, sends POST request to api */
   handleSubmit() {
     const upload = this.state.upload;
-
     fetch('http://127.0.0.1:8000/api/upload/', {
       method: 'POST',
       body: upload
     })
-
     this.setState({modalOpen: false})
   }
 
@@ -100,7 +98,9 @@ class PhotoGrid extends React.Component {
     const {all_photos, isOpen, currPhoto, modalOpen} = this.state;
 
     if (all_photos.length > 0) {
-      return (<Container className="content-body">
+      return (
+        {/* Title and upload button */}
+        <Container className="content-body">
         <Row>
           <Col xs="9">
             <h1>User Submitted Photos</h1>
@@ -110,7 +110,9 @@ class PhotoGrid extends React.Component {
                 this.setState({modalOpen: true})
               }}>Upload</Button>
           </Col>
-=        </Row>
+        </Row>
+
+        {/* Render photo grid from photos retrieved from api */}
         <CardColumns className="photo_grid">
           {
             all_photos.map(photo => (<Card key={photo.id} className="photo_card" onClick={() => {
@@ -124,6 +126,7 @@ class PhotoGrid extends React.Component {
                 <CardText>{photo.caption}</CardText>
               </CardBody>
 
+              {/* Popup lightbox viewer when image card is clicked */}
               <ImgsViewer imgs={[{
                     src: currPhoto.src,
                     caption: currPhoto.caption
@@ -135,6 +138,7 @@ class PhotoGrid extends React.Component {
           }
         </CardColumns>
 
+        {/* Modal dialog for image upload */}
         <Modal sm="true" isOpen={modalOpen}>
           <ModalHeader>
             Submit Your Own Photo
@@ -199,6 +203,7 @@ class PhotoGrid extends React.Component {
         </Modal>
       </Container>);
     }
+    /* Return error page if no photos */
     return (<Container className="content-body">
       <Error404/>
     </Container>);
