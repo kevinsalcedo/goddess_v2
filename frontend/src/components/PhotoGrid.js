@@ -38,7 +38,6 @@ class PhotoGrid extends React.Component {
         src: "",
         caption: ""
       },
-      isOpen: false,
       modalOpen: false,
       upload: {}
     };
@@ -52,6 +51,7 @@ class PhotoGrid extends React.Component {
     this.setState({upload: new FormData()})
   }
 
+  /* Fetches all visible photos from the api */
   updateData = () => {
     try {
       fetch(api).then((response) => {
@@ -65,6 +65,7 @@ class PhotoGrid extends React.Component {
     }
   }
 
+  /* Toggles image viewer open/close */
   handleViewer(photo) {
     this.setState({
       currPhoto: photo
@@ -75,33 +76,17 @@ class PhotoGrid extends React.Component {
     });
   }
 
+  /* Upload photo form handler, sets form data on field change */
   handleChange(event, inputType) {
     const upload = this.state.upload;
-    if (inputType === "file") {
-      upload.append('src', event.target.files[0]);
-    }
-    if (inputType === "location") {
-      upload.append('location', event.target.value);
-    }
-    if (inputType === "climber") {
-      upload.append('climber', event.target.value);
-    }
-    if (inputType === "author") {
-      upload.append('aytgir', event.target.value);
-    }
-    if (inputType === "caption") {
-      upload.append('caption', event.target.value);
-    }
+    const input = inputType === 'src' ? event.target.files[0] : event.target.value;
+    upload.append(inputType, input);
     this.setState({upload});
   }
 
+  /* Upload form handler, sends POST request to api */
   handleSubmit() {
     const upload = this.state.upload;
-    let data = new FormData();
-    data.append('climber', upload.climber);
-    data.append('location', upload.location);
-    data.append('author', upload.author);
-    data.append('caption', upload.caption);
 
     fetch('http://127.0.0.1:8000/api/upload/', {
       method: 'POST',
@@ -112,20 +97,20 @@ class PhotoGrid extends React.Component {
   }
 
   render() {
-    const {all_photos, isOpen, currPhoto} = this.state;
+    const {all_photos, isOpen, currPhoto, modalOpen} = this.state;
 
     if (all_photos.length > 0) {
       return (<Container className="content-body">
         <Row>
-          <Col xs="12" md="9">
+          <Col xs="9">
             <h1>User Submitted Photos</h1>
           </Col>
-          <Col xs="12" md="3">
+          <Col xs="3">
             <Button onClick={() => {
                 this.setState({modalOpen: true})
               }}>Upload</Button>
           </Col>
-        </Row>
+=        </Row>
         <CardColumns className="photo_grid">
           {
             all_photos.map(photo => (<Card key={photo.id} className="photo_card" onClick={() => {
@@ -143,29 +128,29 @@ class PhotoGrid extends React.Component {
                     src: currPhoto.src,
                     caption: currPhoto.caption
                   }
-                ]} showImgCount={false} width={960} isOpen={this.state.isOpen} onClose={() => {
+                ]} showImgCount={false} width={960} isOpen={isOpen} onClose={() => {
                   this.handleViewer(photo)
                 }}/>
             </Card>))
           }
         </CardColumns>
 
-        <Modal isOpen={this.state.modalOpen}>
+        <Modal sm="true" isOpen={modalOpen}>
           <ModalHeader>
             Submit Your Own Photo
           </ModalHeader>
           <ModalBody>
             <Form method="post" action="http://127.0.0.1:8000/api/upload/">
-              <FormGroup row="row">
+              <FormGroup row>
                 <Label for="SRC" sm={2}>Image</Label>
                 <Col sm={10}>
-                  <Input onChange={(e) => {
-                      this.handleChange(e, "file");
+                  <Input valid onChange={(e) => {
+                      this.handleChange(e, "src");
                     }} type="file" name="src" id="SRC"/>
                   <FormText></FormText>
                 </Col>
               </FormGroup>
-              <FormGroup row="row">
+              <FormGroup row>
                 <Label for="CLIMBER" sm={2}>Climber</Label>
                 <Col sm={10}>
                   <Input onChange={(e) => {
@@ -173,7 +158,7 @@ class PhotoGrid extends React.Component {
                     }} type="text" name="climber" id="CLIMBER"/>
                 </Col>
               </FormGroup>
-              <FormGroup row="row">
+              <FormGroup row>
                 <Label for="LOCATION" sm={2}>Location</Label>
                 <Col sm={10}>
                   <Input onChange={(e) => {
@@ -181,15 +166,15 @@ class PhotoGrid extends React.Component {
                     }} type="text" name="location" id="LOCATION"/>
                 </Col>
               </FormGroup>
-              <FormGroup row="row">
-                <Label for="AUTHOR" sm={2}>author</Label>
+              <FormGroup row>
+                <Label for="AUTHOR" sm={2}>Author</Label>
                 <Col sm={10}>
                   <Input onChange={(e) => {
                       this.handleChange(e, "author");
                     }} type="text" name="author" id="AUTHOR"/>
                 </Col>
               </FormGroup>
-              <FormGroup row="row">
+              <FormGroup row>
                 <Label for="CAPTION" sm={2}>Caption</Label>
                 <Col>
                   <Input onChange={(e) => {
@@ -200,12 +185,12 @@ class PhotoGrid extends React.Component {
             </Form>
           </ModalBody>
           <ModalFooter>
-            <Col>
+            <Col xs="6">
               <Button onClick={() => {
                   this.handleSubmit()
                 }}>Submit</Button>
             </Col>
-            <Col>
+            <Col xs="6">
               <Button onClick={() => {
                   this.setState({modalOpen: false})
                 }}>Cancel</Button>

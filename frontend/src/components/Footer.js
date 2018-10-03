@@ -7,7 +7,6 @@ import {
   FormGroup,
   Input,
   Label,
-  Button
 } from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -77,7 +76,7 @@ class Footer extends React.Component {
               <Label for="mce-LNAME">Last Name</Label>
               <Input type="text" name="LNAME" id="mce-LNAME"/>
             </FormGroup>
-            <div hidden aria-hidden><input type="text" name="b_a3ef7908a1a1d9b51024e6291_8a42b55b15" tabIndex="-1" value=""/></div>
+            <div hidden aria-hidden><input type="text" name="b_a3ef7908a1a1d9b51024e6291_8a42b55b15" tabIndex="-1"/></div>
             <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button"/></div>
           </Form>
         </Col>
