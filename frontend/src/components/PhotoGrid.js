@@ -98,8 +98,8 @@ class PhotoGrid extends React.Component {
     const {all_photos, isOpen, currPhoto, modalOpen} = this.state;
 
     if (all_photos.length > 0) {
+      /* Title and upload button */
       return (
-        {/* Title and upload button */}
         <Container className="content-body">
         <Row>
           <Col xs="9">
@@ -112,7 +112,7 @@ class PhotoGrid extends React.Component {
           </Col>
         </Row>
 
-        {/* Render photo grid from photos retrieved from api */}
+        {/* Photogrid dynamically fills in with photos from api */}
         <CardColumns className="photo_grid">
           {
             all_photos.map(photo => (<Card key={photo.id} className="photo_card" onClick={() => {
@@ -138,7 +138,7 @@ class PhotoGrid extends React.Component {
           }
         </CardColumns>
 
-        {/* Modal dialog for image upload */}
+        {/* Modal pop up for image uploading */}
         <Modal sm="true" isOpen={modalOpen}>
           <ModalHeader>
             Submit Your Own Photo
