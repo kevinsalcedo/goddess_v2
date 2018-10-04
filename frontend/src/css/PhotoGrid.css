@@ -17,6 +17,12 @@
   cursor: pointer;
 }
 
+.form_button {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 48em) {
   .photo_grid {
     padding: 1%;

@@ -39,7 +39,8 @@ class PhotoGrid extends React.Component {
         caption: ""
       },
       modalOpen: false,
-      upload: {}
+      upload: {},
+      uploadCharLimit: 100
     };
     this.handleViewer = this.handleViewer.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -83,6 +84,10 @@ class PhotoGrid extends React.Component {
     const inputValue = inputType === 'src' ? event.target.files[0] : event.target.value;
     upload.append(inputType, inputValue);
     this.setState({upload});
+
+    if(inputType === 'caption') {
+      this.setState({uploadCharLimit: 100 - inputValue.length});
+    }
   }
 
   /* Upload form handler, sends POST request to api */
@@ -96,7 +101,7 @@ class PhotoGrid extends React.Component {
   }
 
   render() {
-    const {all_photos, isOpen, currPhoto, modalOpen} = this.state;
+    const {all_photos, isOpen, currPhoto, modalOpen, uploadCharLimit} = this.state;
 
     if (all_photos.length > 0) {
       /* Title and upload button */
@@ -107,7 +112,7 @@ class PhotoGrid extends React.Component {
             <h1>User Submitted Photos</h1>
           </Col>
           <Col xs="3">
-            <Button onClick={() => {
+            <Button className="form_button" onClick={() => {
                 this.setState({modalOpen: true})
               }}>Upload</Button>
           </Col>
@@ -175,18 +180,19 @@ class PhotoGrid extends React.Component {
                 <Label for="CAPTION" sm={2}>Caption</Label>
                 <Col>
                   <Input type="textarea" name="caption" id="CAPTION"/>
+                  <FormText>{uploadCharLimit} / 100 characters remaining.</FormText>
                 </Col>
               </FormGroup>
             </Form>
           </ModalBody>
           <ModalFooter>
             <Col xs="6">
-              <Button onClick={() => {
+              <Button className="form_button" onClick={() => {
                   this.handleSubmit()
                 }}>Submit</Button>
             </Col>
             <Col xs="6">
-              <Button onClick={() => {
+              <Button className="form_button" onClick={() => {
                   this.setState({modalOpen: false})
                 }}>Cancel</Button>
             </Col>
