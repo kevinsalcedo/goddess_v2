@@ -77,10 +77,11 @@ class PhotoGrid extends React.Component {
   }
 
   /* Upload photo form handler, sets form data on field change */
-  handleChange(event, inputType) {
+  handleChange(event) {
     const upload = this.state.upload;
-    const input = inputType === 'src' ? event.target.files[0] : event.target.value;
-    upload.append(inputType, input);
+    const inputType = event.target.name;
+    const inputValue = inputType === 'src' ? event.target.files[0] : event.target.value;
+    upload.append(inputType, inputValue);
     this.setState({upload});
   }
 
@@ -144,46 +145,36 @@ class PhotoGrid extends React.Component {
             Submit Your Own Photo
           </ModalHeader>
           <ModalBody>
-            <Form method="post" action="http://127.0.0.1:8000/api/upload/">
+            <Form method="post" action="http://127.0.0.1:8000/api/upload/" onChange={(e) => this.handleChange(e)}>
               <FormGroup row>
                 <Label for="SRC" sm={2}>Image</Label>
                 <Col sm={10}>
-                  <Input valid onChange={(e) => {
-                      this.handleChange(e, "src");
-                    }} type="file" name="src" id="SRC"/>
+                  <Input valid type="file" name="src" id="SRC"/>
                   <FormText></FormText>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="CLIMBER" sm={2}>Climber</Label>
                 <Col sm={10}>
-                  <Input onChange={(e) => {
-                      this.handleChange(e, "climber");
-                    }} type="text" name="climber" id="CLIMBER"/>
+                  <Input type="text" name="climber" id="CLIMBER"/>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="LOCATION" sm={2}>Location</Label>
                 <Col sm={10}>
-                  <Input onChange={(e) => {
-                      this.handleChange(e, "location");
-                    }} type="text" name="location" id="LOCATION"/>
+                  <Input type="text" name="location" id="LOCATION"/>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="AUTHOR" sm={2}>Author</Label>
                 <Col sm={10}>
-                  <Input onChange={(e) => {
-                      this.handleChange(e, "author");
-                    }} type="text" name="author" id="AUTHOR"/>
+                  <Input type="text" name="author" id="AUTHOR"/>
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="CAPTION" sm={2}>Caption</Label>
                 <Col>
-                  <Input onChange={(e) => {
-                      this.handleChange(e, "caption");
-                    }} type="textarea" name="caption" id="CAPTION"/>
+                  <Input type="textarea" name="caption" id="CAPTION"/>
                 </Col>
               </FormGroup>
             </Form>

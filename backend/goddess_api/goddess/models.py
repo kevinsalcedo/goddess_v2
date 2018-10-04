@@ -30,11 +30,11 @@ class Comment(models.Model):
 
 class File(models.Model):
     src = models.ImageField(blank=False)
-    climber = models.CharField(max_length=30, null=True)
-    location = models.CharField(max_length=30, null=True)
-    author = models.CharField(max_length=30, null=True)
-    caption = models.CharField(max_length=150, null=True)
+    climber = models.CharField(max_length=30, blank=True null=True)
+    location = models.CharField(max_length=30, blank=True null=True)
+    author = models.CharField(max_length=30, blank=True null=True)
+    caption = models.CharField(max_length=150, blank=True null=True)
     visible = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.caption
+        return self.src.url
