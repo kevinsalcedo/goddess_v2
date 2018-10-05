@@ -4,6 +4,9 @@
   box-shadow: 0 3px 3px 0 gray;
 }
 
+.post-content {
+  font-size: 105%;
+}
 .post-content a {
   text-decoration: none;
   color: #587D71;

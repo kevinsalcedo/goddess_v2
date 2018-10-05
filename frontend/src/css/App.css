@@ -1,66 +1,66 @@
 @font-face {
-    font-family: 'Poly';
-    src: url('../assets/fonts/poly/Poly-Regular.otf');
+    font-family: 'Didot';
+    src: url('../assets/fonts/pairing1/Didot-HTF-B24-Bold.ttf');
 }
 
 @font-face {
-    font-family: 'Capsuula';
-    src: url('../assets/fonts/Capsuula.ttf');
+    font-family: 'Didot';
+    src: url('../assets/fonts/pairing1/Montserrat-Light.otf');
 }
 
 html,
 body {
   background-color: #D7CBE4;
 	font-size: 14px !important;
-  font-family: Poly;
+  font-family: Montserrat;
 }
 h1 {
 	font-size: 1.602em;
-  font-family: Capsuula;
+  font-family: Didot;
 }
 h2 {
 	font-size: 1.424em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 h3 {
 	font-size: 1.266em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 h4 {
 	font-size: 1.125em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 h5 {
 	font-size: 0.889em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 h6 {
 	font-size: 0.79em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 .display-1 {
 	font-size: 3.906em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 .display-2 {
 	font-size: 3.125em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 .display-3 {
 	font-size: 2.5em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 .display-4 {
 	font-size: 2em;
-  font-family: Capsuula;
+  font-family: Didot;
 
 }
 .content-body {
@@ -73,35 +73,35 @@ h6 {
 @media (min-width: 48em) {
 	h1 {
 	  font-size: 2.441em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	h2 {
 		font-size: 1.953em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	h3 {
 		font-size: 1.563em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	h4 {
 		font-size: 1.25em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	.display-1 {
 		font-size: 6em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	.display-2 {
 		font-size: 5.5em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	.display-3 {
 		font-size: 4.5em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 	.display-4 {
 		font-size: 3.5em;
-    font-family: Capsuula;
+    font-family: Didot;
 	}
 }
 
