@@ -17,6 +17,14 @@
   cursor: pointer;
 }
 
+.card-text {
+  font-family: "Capsuula";
+}
+
+.card-title {
+  font-weight: bold;
+}
+
 .form_button {
   width: 100%;
   margin-left: auto;

@@ -14,7 +14,8 @@
 }
 
 .header-item {
-  font-family: Agane;
+  font-family: Capsuula;
+  font-weight: bold;
 }
 
 
@@ -24,7 +25,7 @@
 @media (min-width: 48em) {
   .header-item {
     color: white;
-    font-family: Agane;
+    font-family: Capsuula;
   }
 
   .header-brand:hover {

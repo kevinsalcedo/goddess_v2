@@ -10,3 +10,12 @@
   padding: 5px;
   border-radius: 50%;
 }
+
+.mailto {
+  text-decoration: none;
+  color: #49675D;
+}
+
+.mailto:hover {
+  color: #587D71;
+}

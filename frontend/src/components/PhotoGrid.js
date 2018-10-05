@@ -126,10 +126,9 @@ class PhotoGrid extends React.Component {
               }}>
               <CardImg className="photo_img" top src={photo.src}/>
               <CardBody>
-                <CardTitle>{photo.climber}
-                  @ {photo.location}</CardTitle>
+                <CardTitle className="lead card-title">{photo.climber} @ {photo.location}</CardTitle>
                 <CardSubtitle>Author: {photo.author}</CardSubtitle>
-                <CardText>{photo.caption}</CardText>
+                <CardText className="card-text">{photo.caption}</CardText>
               </CardBody>
 
               {/* Popup lightbox viewer when image card is clicked */}

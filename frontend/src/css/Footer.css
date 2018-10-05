@@ -8,6 +8,7 @@
 .info-col-1 {
   /*border:1px solid red;*/
   margin-bottom: 2%;
+  
 }
 
 .info-col-2 {
@@ -25,6 +26,7 @@
 
 .recents {
   border-bottom: 1px solid black;
+  font-weight: bold;
 }
 
 .recentLink {

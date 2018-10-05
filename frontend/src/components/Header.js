@@ -41,11 +41,6 @@ class Header extends React.Component {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href='/about'>
-              <span className="header-item header-link">About</span>
-            </NavLink>
-          </NavItem>
-          <NavItem>
             <NavLink href='/blog'>
               <span className="header-item header-link">Blog</span>
             </NavLink>
@@ -55,8 +50,8 @@ class Header extends React.Component {
               <span className="header-item header-link">Photos</span>
             </NavLink>
           </NavItem>
-          <NavLink href='/contact'>
-            <span className="header-item header-link">Contact</span>
+          <NavLink href='/about'>
+            <span className="header-item header-link">About</span>
           </NavLink>
         </Nav>
       </Collapse>

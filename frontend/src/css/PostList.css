@@ -17,3 +17,10 @@
 .desc {
   font-size: small;
 }
+
+.head-title {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: black;
+  text-decoration-style: wavy;
+}

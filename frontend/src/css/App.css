@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: 'Agane';
-    src: url('../assets/fonts/agane/agane-65-bold.ttf');
+    font-family: 'Capsuula';
+    src: url('../assets/fonts/Capsuula.ttf');
 }
 
 html,
@@ -16,51 +16,51 @@ body {
 }
 h1 {
 	font-size: 1.602em;
-  font-family: Agane;
+  font-family: Capsuula;
 }
 h2 {
 	font-size: 1.424em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 h3 {
 	font-size: 1.266em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 h4 {
 	font-size: 1.125em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 h5 {
 	font-size: 0.889em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 h6 {
 	font-size: 0.79em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 .display-1 {
 	font-size: 3.906em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 .display-2 {
 	font-size: 3.125em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 .display-3 {
 	font-size: 2.5em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 .display-4 {
 	font-size: 2em;
-  font-family: Agane;
+  font-family: Capsuula;
 
 }
 .content-body {
@@ -73,35 +73,35 @@ h6 {
 @media (min-width: 48em) {
 	h1 {
 	  font-size: 2.441em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	h2 {
 		font-size: 1.953em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	h3 {
 		font-size: 1.563em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	h4 {
 		font-size: 1.25em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	.display-1 {
 		font-size: 6em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	.display-2 {
 		font-size: 5.5em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	.display-3 {
 		font-size: 4.5em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 	.display-4 {
 		font-size: 3.5em;
-    font-family: Agane;
+    font-family: Capsuula;
 	}
 }
 
