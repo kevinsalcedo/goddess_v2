@@ -34,7 +34,7 @@ class PostList extends React.Component {
 
   render() {
     return (<Container className="content-body">
-      <h1 className="head-title">Grace's Blog</h1>
+      <h1 className="head-title">Blog</h1>
       <br/>
       <Row>
         <Col>

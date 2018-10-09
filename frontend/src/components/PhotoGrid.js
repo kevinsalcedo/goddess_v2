@@ -93,7 +93,7 @@ class PhotoGrid extends React.Component {
   /* Upload form handler, sends POST request to api */
   handleSubmit() {
     const upload = this.state.upload;
-    fetch('http://127.0.0.1:8000/api/upload/', {
+    fetch('http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/upload/', {
       method: 'POST',
       body: upload
     })
@@ -108,14 +108,17 @@ class PhotoGrid extends React.Component {
       return (
         <Container className="content-body">
         <Row>
-          <Col xs="9">
             <h1>User Submitted Photos</h1>
-          </Col>
-          <Col xs="3">
-            <Button className="form_button" onClick={() => {
-                this.setState({modalOpen: true})
-              }}>Upload</Button>
-          </Col>
+          </Row>
+          <Row>
+            <Col>
+              <h4 className="text-align-right">Have a photo you'd like shown on the site? Submit it here!</h4>
+            </Col>
+            <Col xs="3">
+              <Button className="form_button" onClick={() => {
+                  this.setState({modalOpen: true})
+                }}>Upload</Button>
+            </Col>
         </Row>
 
         {/* Photogrid dynamically fills in with photos from api */}
