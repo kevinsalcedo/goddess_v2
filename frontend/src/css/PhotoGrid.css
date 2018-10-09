@@ -27,6 +27,17 @@
   margin-right: auto;
 }
 
+.submit_button {
+background-color: #56BCF9;
+
+border-color: inherit;
+}
+
+.submit_button:hover {
+  background-color: #47A7CC;
+  border-color: inherit;
+}
+
 @media (min-width: 48em) {
   .photo_grid {
     padding: 1%;

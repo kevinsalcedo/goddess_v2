@@ -93,10 +93,20 @@ class PhotoGrid extends React.Component {
   /* Upload form handler, sends POST request to api */
   handleSubmit() {
     const upload = this.state.upload;
-    fetch('http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/upload/', {
-      method: 'POST',
-      body: upload
-    })
+
+
+    try {
+
+      fetch('http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/upload/', {
+        method: 'POST',
+        body: upload
+      }).then((response) => {
+        console.log(response);
+      });
+      window.scrollTo(0, 0);
+    } catch (e) {
+      console.log('failed');
+    }
     this.setState({modalOpen: false})
   }
 
@@ -112,7 +122,7 @@ class PhotoGrid extends React.Component {
           </Row>
           <Row>
             <Col>
-              <h4 className="text-align-right">Have a photo you'd like shown on the site? Submit it here!</h4>
+              <p className="lead">If you have a photo of you or your friends climbing featured on our website, submit them here, along with a short description of why you climb!</p>
             </Col>
             <Col xs="3">
               <Button className="form_button" onClick={() => {
@@ -179,7 +189,7 @@ class PhotoGrid extends React.Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label for="CAPTION" sm={2}>Caption</Label>
+                <Label for="CAPTION" sm={12}>Why do you climb?</Label>
                 <Col>
                   <Input type="textarea" name="caption" id="CAPTION"/>
                   <FormText>{uploadCharLimit} / 100 characters remaining.</FormText>
@@ -189,7 +199,7 @@ class PhotoGrid extends React.Component {
           </ModalBody>
           <ModalFooter>
             <Col xs="6">
-              <Button className="form_button" onClick={() => {
+              <Button className="form_button submit_button" onClick={() => {
                   this.handleSubmit()
                 }}>Submit</Button>
             </Col>
