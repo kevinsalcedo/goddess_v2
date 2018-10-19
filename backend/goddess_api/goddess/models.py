@@ -20,7 +20,7 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     comment_text = models.CharField(max_length=500)
-    pub_date = models.DateTimeField('datetime published')
+    pub_date = models.DateField('date published')
 
     def __str__(self):
         return self.comment_text

@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from .models import Post, File
-from .serializers import PostSerializer, FileSerializer
+from .models import Post, File, Comment
+from .serializers import PostSerializer, FileSerializer, CommentSerializer
 
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -23,6 +23,23 @@ class ListPost(generics.ListCreateAPIView):
 class DetailPost(generics.RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+
+class CommentView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, *args, **kwargs):
+        comment_serializer = CommentSerializer(data=request.data)
+        if comment_serializer.is_valid():
+            comment_serializer.save()
+            return Response(comment_serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(comment_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ListComment(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('post',)
 
 class FileView(APIView):
     parser_classes = (MultiPartParser, FormParser)
