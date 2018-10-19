@@ -55,7 +55,7 @@ class PhotoGrid extends React.Component {
   /* Fetches all visible photos from the api */
   updateData = () => {
     try {
-      fetch(api).then((response) => {
+      fetch(local).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});

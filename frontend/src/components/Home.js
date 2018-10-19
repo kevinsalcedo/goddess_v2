@@ -14,7 +14,7 @@ class Home extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(api);
+      const res = await fetch(local);
       const post = await res.json();
       this.setState({post});
     } catch (e) {

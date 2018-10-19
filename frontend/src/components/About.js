@@ -16,7 +16,7 @@ class About extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(api);
+      const res = await fetch(local);
       const about = await res.json();
       this.setState({about});
     } catch (e) {
