@@ -1,6 +1,8 @@
 import React from 'react';
 import {Container, Row, Col, Card} from 'reactstrap';
 
+import Comment from './Comment.js';
+
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostDetail.css';
 
@@ -57,6 +59,10 @@ class PostDetail extends React.Component {
               }}></div>
           </Card>
         </Col>
+      </Row>
+      <hr/>
+      <Row>
+        <Comment />
       </Row>
     </Container>);
   }
