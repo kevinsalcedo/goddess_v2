@@ -55,7 +55,7 @@ class PhotoGrid extends React.Component {
   /* Fetches all visible photos from the api */
   updateData = () => {
     try {
-      fetch(local).then((response) => {
+      fetch(api).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});
@@ -162,7 +162,7 @@ class PhotoGrid extends React.Component {
             Submit Your Own Photo
           </ModalHeader>
           <ModalBody>
-            <Form method="post" action="http://127.0.0.1:8000/api/upload/" onChange={(e) => this.handleChange(e)}>
+            <Form method="post" onChange={(e) => this.handleChange(e)}>
               <FormGroup row>
                 <Label for="SRC" sm={2}>Image</Label>
                 <Col sm={10}>

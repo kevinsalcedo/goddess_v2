@@ -8,7 +8,6 @@ import PostList from './components/PostList';
 import PostDetail from './components/PostDetail';
 import PhotoGrid from './components/PhotoGrid';
 import Footer from './components/Footer';
-import Contact from './components/Contact';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './css/App.css';
@@ -24,7 +23,6 @@ class App extends Component {
           <Route exact path="/blog" component={PostList} />
           <Route path="/blog/:postTitle" component={PostDetail} />
           <Route exact path="/photos" component={PhotoGrid} />
-          <Route exact path="/contact" component={Contact} />
           <Footer />
         </div>
       </BrowserRouter>

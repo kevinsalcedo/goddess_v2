@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from .models import Post, File, Comment
-from .serializers import PostSerializer, FileSerializer, CommentSerializer
+from .models import Post, File
+from .serializers import PostSerializer, FileSerializer
 
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -11,7 +11,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework import status
 
 # Create your views here.
-class ListPost(generics.ListCreateAPIView):
+class ListPost(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     filter_backends = (DjangoFilterBackend, SearchFilter, OrderingFilter,)
@@ -20,26 +20,9 @@ class ListPost(generics.ListCreateAPIView):
     ordering_fields = ('title', 'pub_date',)
     ordering = ('pub_date',)
 
-class DetailPost(generics.RetrieveUpdateDestroyAPIView):
+class DetailPost(generics.RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-
-class CommentView(APIView):
-    parser_classes = (MultiPartParser, FormParser)
-
-    def post(self, request, *args, **kwargs):
-        comment_serializer = CommentSerializer(data=request.data)
-        if comment_serializer.is_valid():
-            comment_serializer.save()
-            return Response(comment_serializer.data, status=status.HTTP_201_CREATED)
-        else:
-            return Response(comment_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class ListComment(generics.ListCreateAPIView):
-    queryset = Comment.objects.all()
-    serializer_class = CommentSerializer
-    filter_backends = (DjangoFilterBackend,)
-    filter_fields = ('post',)
 
 class FileView(APIView):
     parser_classes = (MultiPartParser, FormParser)
@@ -52,12 +35,12 @@ class FileView(APIView):
         else:
             return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class ListFile(generics.ListCreateAPIView):
+class ListFile(generics.ListAPIView):
     queryset = File.objects.all()
     serializer_class = FileSerializer
     filter_backends = (DjangoFilterBackend,)
     filter_fields = ('visible',)
 
-class DetailFile(generics.RetrieveUpdateDestroyAPIView):
+class DetailFile(generics.RetrieveAPIView):
     queryset = File.objects.all()
     serializer_class = FileSerializer
