@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, File
+from .models import Post, File, Comment
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -11,6 +11,16 @@ class PostSerializer(serializers.ModelSerializer):
                 'visible'
                 )
         model = Post
+
+class CommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = (
+        'id',
+        'post',
+        'comment_text',
+        'pub_date'
+        )
+        model = Comment
 
 class FileSerializer(serializers.ModelSerializer):
     class Meta:

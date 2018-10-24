@@ -16,15 +16,20 @@ class Comment extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({upload: new FormData()})
+    var upload = new FormData();
+    upload.append('post', (window.location.href).split("/blog/").pop());
+    upload.append('pub_date', new Date().toISOString().slice(0,10));
 
+    console.log()
+
+    this.setState({upload});
   }
 
   handleChange(event) {
     const upload = this.state.upload;
-    upload.append('commentText', event.target.value);
+    upload.append('comment_text', event.target.value);
     this.setState({upload});
-    var today = new Date();
+    var today = new Date().toISOString().slice(0,10);
     console.log(today);
   }
 
@@ -33,8 +38,7 @@ class Comment extends React.Component {
 
       try {
 
-        upload.append('post', parseInt((window.location.href).split("/blog/").pop(), 10));
-        upload.append('pub_date', new Date().toString());
+
         fetch('http://127.0.0.1:8000/api/comment/', {
           method: 'POST',
           body: upload
