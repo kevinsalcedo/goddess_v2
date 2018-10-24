@@ -122,7 +122,7 @@ class PhotoGrid extends React.Component {
           </Row>
           <Row>
             <Col>
-              <p className="lead">If you have a photo of you or your friends climbing featured on our website, submit them here, along with a short description of why you climb!</p>
+              <p className="lead">If you want a photo of you or your friends climbing featured on our website, submit them here, along with a short description of why you climb!</p>
             </Col>
             <Col xs="3">
               <Button className="form_button" onClick={() => {

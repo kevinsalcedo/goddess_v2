@@ -1,24 +1,50 @@
 import React from 'react';
 import { Container, Form, FormGroup, Input, Button } from 'reactstrap';
+import { Link, Location} from 'react-router-dom';
 
 class Comment extends React.Component {
 
-  state = {
-    commentText: "placeholder",
-  }
-
   constructor(props) {
     super(props);
+
+    this.state = {
+      upload: {}
+    }
 
     this.submitComment = this.submitComment.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({upload: new FormData()})
+
+  }
+
   handleChange(event) {
-    this.setState({commentText: event.target.value});
+    const upload = this.state.upload;
+    upload.append('commentText', event.target.value);
+    this.setState({upload});
+    var today = new Date();
+    console.log(today);
   }
 
   submitComment() {
+      const upload = this.state.upload;
+
+      try {
+
+        upload.append('post', parseInt((window.location.href).split("/blog/").pop(), 10));
+        upload.append('pub_date', new Date().toString());
+        fetch('http://127.0.0.1:8000/api/comment/', {
+          method: 'POST',
+          body: upload
+        }).then((response) => {
+          console.log(response);
+        });
+        window.scrollTo(0, 0);
+      } catch (e) {
+        console.log('failed');
+      }
   }
 
   render() {
