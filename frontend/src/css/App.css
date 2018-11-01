@@ -4,63 +4,63 @@
 }
 
 @font-face {
-    font-family: 'Didot';
-    src: url('../assets/fonts/pairing1/Montserrat-Light.otf');
+    font-family: 'Poly';
+    src: url('../assets/fonts/poly/Poly-Regular.otf');
 }
 
 html,
 body {
   background-color: #D7CBE4;
 	font-size: 14px !important;
-  font-family: Montserrat;
+  font-family: Poly;
 }
 h1 {
 	font-size: 1.602em;
-  font-family: Didot;
+  font-family: Poly;
 }
 h2 {
 	font-size: 1.424em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 h3 {
 	font-size: 1.266em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 h4 {
 	font-size: 1.125em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 h5 {
 	font-size: 0.889em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 h6 {
 	font-size: 0.79em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 .display-1 {
 	font-size: 3.906em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 .display-2 {
 	font-size: 3.125em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 .display-3 {
 	font-size: 2.5em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 .display-4 {
 	font-size: 2em;
-  font-family: Didot;
+  font-family: Poly;
 
 }
 .content-body {
@@ -73,35 +73,35 @@ h6 {
 @media (min-width: 48em) {
 	h1 {
 	  font-size: 2.441em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	h2 {
 		font-size: 1.953em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	h3 {
 		font-size: 1.563em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	h4 {
 		font-size: 1.25em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	.display-1 {
 		font-size: 6em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	.display-2 {
 		font-size: 5.5em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	.display-3 {
 		font-size: 4.5em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 	.display-4 {
 		font-size: 3.5em;
-    font-family: Didot;
+    font-family: Poly;
 	}
 }
 
