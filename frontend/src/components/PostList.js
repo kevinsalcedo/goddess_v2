@@ -5,8 +5,8 @@ import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostList.css';
 
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true';
-const local = 'http://127.0.0.1:8000/api/blog/?visible=true';
+const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true&ordering=-pub_date';
+const local = 'http://127.0.0.1:8000/api/blog/?visible=true&ordering=-pub_date';
 
 class PostList extends React.Component {
   state = {
