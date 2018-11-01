@@ -1,9 +1,12 @@
 import React from 'react';
-import { Container, Form, FormGroup, Input, Button, Card, CardText, CardTitle } from 'reactstrap';
+import { Container, Form, FormGroup, Input, Button, Card, CardText, CardTitle, Label, Col, Row } from 'reactstrap';
 import { Link, Location} from 'react-router-dom';
 
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog_comment/';
 const local = 'http://127.0.0.1:8000/api/blog_comment/';
+
+const upload_api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/comment/';
+const upload_local = 'http://127.0.0.1:8000/api/comment/';
 
 class Comment extends React.Component {
 
@@ -33,22 +36,19 @@ class Comment extends React.Component {
 
   handleChange(event) {
     const upload = this.state.upload;
-    upload.append('comment_text', event.target.value);
+    upload.append(event.target.name, event.target.value);
     this.setState({upload});
   }
 
   submitComment(event) {
       const upload = this.state.upload;
-
       try {
-        fetch('http://127.0.0.1:8000/api/comment/', {
+        fetch(upload_api, {
           method: 'POST',
           body: upload
         }).then((response) => {
-          console.log(response);
         }).then(() => {
           this.updateData();
-          console.log(event);
         });
       } catch (e) {
         console.log('failed');
@@ -58,7 +58,7 @@ class Comment extends React.Component {
   updateData = () => {
     try {
       const postId = (window.location.href).split("/blog/").pop();
-      fetch(local + `?post=${postId}`)
+      fetch(api + `?post=${postId}`)
       .then((response) => {
         return response.json();
       })
@@ -73,23 +73,33 @@ class Comment extends React.Component {
 
   render() {
     const {curr_comments} = this.state;
+    const postNum = (window.location.href).split("/blog/").pop();
+    const today = new Date().toISOString().slice(0,10);
     return (<Container>
       <h1>Leave a Comment!</h1>
       {curr_comments.map(comment => (
-        <div>
+        <div key={comment.id}>
           <Card>
-            <CardTitle>Kevin</CardTitle>
+            <CardTitle>{comment.name}</CardTitle>
             <CardText>{comment.comment_text}</CardText>
           </Card>
           <hr/>
         </div>
     ))}
-      <Form onChange={(e) => this.handleChange(e)}>
+      <Form onChange={(e) => this.handleChange(e)} ref="form">
         <FormGroup>
-          <Input type="textarea" id="text" name="text"/>
+        <Row>
+          <Label sm={3} for="name">Name (optional):</Label>
+          <Col><Input type="text" id="name" name="name" ref="name"/></Col>
+          </Row>
         </FormGroup>
-        <Button onClick={(e) => this.submitComment(e)}>Submit</Button>
+        <FormGroup>
+          <Input type="textarea" id="comment_text" name="comment_text" ref="comment_text"/>
+        </FormGroup>
+        <Button type="reset" onClick={(e) => this.submitComment(e)}>Submit</Button>
       </Form>
+
+
     </Container>);
   }
 

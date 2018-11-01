@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Container, Col, Row, Input, Label } from 'reactstrap';
+import {Container, Col, Row, Input } from 'reactstrap';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostList.css';
@@ -26,7 +26,7 @@ class PostList extends React.Component {
   }
 
   updateData = () => {
-    const link = local + this.state.sortOrder;
+    const link = api + this.state.sortOrder;
     try {
       fetch(link)
       .then((response) => {

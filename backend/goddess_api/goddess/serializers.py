@@ -18,7 +18,8 @@ class CommentSerializer(serializers.ModelSerializer):
         'id',
         'post',
         'comment_text',
-        'pub_date'
+        'pub_date',
+        'name'
         )
         model = Comment
 

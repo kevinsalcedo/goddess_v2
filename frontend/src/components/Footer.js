@@ -32,7 +32,7 @@ class Footer extends React.Component {
   // Hit API for all posts - need to make just 5 most recent
   updateData = () => {
     try {
-      fetch(local).then((response) => {
+      fetch(api).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({recent_posts: response});
