@@ -20,3 +20,15 @@
 .head-title {
   font-weight: bold;
 }
+
+.sortingSelect {
+  background-color: #D7CBE4;
+  color: #524D6B;
+  border: none;
+}
+
+.sortingSelect:focus {
+  background-color: #D7CBE4;
+  color: #524D6B;
+  border: none;
+}
