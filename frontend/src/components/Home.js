@@ -6,6 +6,8 @@ import '../css/Home.css';
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/8/'
 const local = 'http://127.0.0.1:8000/api/blog/8/';
 
+var current_endpoint = api;
+
 class Home extends React.Component {
 
   state = {
@@ -14,7 +16,7 @@ class Home extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(api);
+      const res = await fetch(current_endpoint);
       const post = await res.json();
       this.setState({post});
     } catch (e) {

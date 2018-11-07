@@ -8,6 +8,8 @@ import '../css/About.css';
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/9/'
 const local = 'http://127.0.0.1:8000/api/blog/9/';
 
+var current_endpoint = api;
+
 class About extends React.Component {
 
   state = {
@@ -16,7 +18,7 @@ class About extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(api);
+      const res = await fetch(current_endpoint);
       const about = await res.json();
       this.setState({about});
     } catch (e) {

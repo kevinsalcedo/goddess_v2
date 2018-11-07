@@ -8,6 +8,8 @@ import '../css/PostList.css';
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true&ordering=';
 const local = 'http://127.0.0.1:8000/api/blog/?visible=true&ordering=';
 
+var current_endpoint = api;
+
 class PostList extends React.Component {
 
   constructor(props) {
@@ -26,7 +28,7 @@ class PostList extends React.Component {
   }
 
   updateData = () => {
-    const link = api + this.state.sortOrder;
+    const link = current_endpoint + this.state.sortOrder;
     try {
       fetch(link)
       .then((response) => {

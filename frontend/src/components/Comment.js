@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container, Form, FormGroup, Input, Button, Card, CardText, CardTitle, Label, Col, Row } from 'reactstrap';
-import { Link, Location} from 'react-router-dom';
 
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog_comment/';
 const local = 'http://127.0.0.1:8000/api/blog_comment/';
 
 const upload_api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/comment/';
 const upload_local = 'http://127.0.0.1:8000/api/comment/';
+
+var current_endpoint = api;
+var current_upload = upload_api;
 
 class Comment extends React.Component {
 
@@ -43,7 +45,7 @@ class Comment extends React.Component {
   submitComment(event) {
       const upload = this.state.upload;
       try {
-        fetch(upload_api, {
+        fetch(current_upload, {
           method: 'POST',
           body: upload
         }).then((response) => {
@@ -58,7 +60,7 @@ class Comment extends React.Component {
   updateData = () => {
     try {
       const postId = (window.location.href).split("/blog/").pop();
-      fetch(api + `?post=${postId}`)
+      fetch(current_endpoint + `?post=${postId}`)
       .then((response) => {
         return response.json();
       })
@@ -73,8 +75,6 @@ class Comment extends React.Component {
 
   render() {
     const {curr_comments} = this.state;
-    const postNum = (window.location.href).split("/blog/").pop();
-    const today = new Date().toISOString().slice(0,10);
     return (<Container>
       <h1>Leave a Comment!</h1>
       {curr_comments.map(comment => (

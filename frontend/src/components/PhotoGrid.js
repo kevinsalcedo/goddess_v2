@@ -32,6 +32,9 @@ const local = 'http://127.0.0.1:8000/api/photos/?visible=true';
 const post_live = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/upload/';
 const post_local = 'http://127.0.0.1:8000//api/upload/';
 
+var current_endpoint = api;
+var current_post = post_live;
+
 class PhotoGrid extends React.Component {
   constructor(props) {
     super(props);
@@ -58,7 +61,7 @@ class PhotoGrid extends React.Component {
   /* Fetches all visible photos from the api */
   updateData = () => {
     try {
-      fetch(api).then((response) => {
+      fetch(current_endpoint).then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});
@@ -100,7 +103,7 @@ class PhotoGrid extends React.Component {
 
     try {
 
-      fetch(post_live, {
+      fetch(current_post, {
         method: 'POST',
         body: upload
       }).then((response) => {
