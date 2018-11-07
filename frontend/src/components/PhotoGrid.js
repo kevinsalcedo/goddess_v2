@@ -30,10 +30,10 @@ const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/ph
 const local = 'http://127.0.0.1:8000/api/photos/?visible=true';
 
 const post_live = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/upload/';
-const post_local = 'http://127.0.0.1:8000//api/upload/';
+const post_local = 'http://127.0.0.1:8000/api/upload/';
 
-var current_endpoint = api;
-var current_post = post_live;
+var current_endpoint = local;
+var current_post = post_local;
 
 class PhotoGrid extends React.Component {
   constructor(props) {
@@ -100,14 +100,18 @@ class PhotoGrid extends React.Component {
   handleSubmit() {
     const upload = this.state.upload;
 
-
     try {
-
       fetch(current_post, {
         method: 'POST',
         body: upload
       }).then((response) => {
-        console.log(response);
+        if(response.status == 400) {
+          console.log('Bad request!');
+        } else if (response.status == 201) {
+          console.log('Uploaded, awaiting approval!');
+        } else {
+          console.log('Uh oh. Error code:' + response.status);
+        }
       });
       window.scrollTo(0, 0);
     } catch (e) {

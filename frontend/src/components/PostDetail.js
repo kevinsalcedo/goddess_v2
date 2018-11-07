@@ -9,7 +9,7 @@ import '../css/PostDetail.css';
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/';
 const local = 'http://127.0.0.1:8000/api/blog/';
 
-var current_endpoint = api;
+var current_endpoint = local;
 
 class PostDetail extends React.Component {
 
