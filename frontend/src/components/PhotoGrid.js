@@ -46,7 +46,10 @@ class PhotoGrid extends React.Component {
       },
       modalOpen: false,
       upload: {},
-      uploadCharLimit: 100
+      uploadCharLimit: 100,
+      confirmOpen: false,
+      confirmBody: "",
+      confirmHeader: "",
     };
     this.handleViewer = this.handleViewer.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -107,21 +110,24 @@ class PhotoGrid extends React.Component {
       }).then((response) => {
         if(response.status == 400) {
           console.log('Bad request!');
+          this.setState({confirmHeader: "Uh Oh! Upload Failed.", confirmBody: "Please check your info and try again."});
         } else if (response.status == 201) {
           console.log('Uploaded, awaiting approval!');
+          this.setState({confirmHeader: "Upload success!", confirmBody: "Check back soon to see if your photo was approved!"});
         } else {
           console.log('Uh oh. Error code:' + response.status);
+          this.setState({confirmHeader: "Upload Error.", confirmBody: "Uh oh, something went wrong on our end. Please try again."});
         }
       });
       window.scrollTo(0, 0);
     } catch (e) {
       console.log('failed');
     }
-    this.setState({modalOpen: false})
+    this.setState({modalOpen: false, confirmOpen: true});
   }
 
   render() {
-    const {all_photos, isOpen, currPhoto, modalOpen, uploadCharLimit} = this.state;
+    const {all_photos, isOpen, currPhoto, modalOpen, uploadCharLimit, confirmOpen, confirmBody, confirmHeader} = this.state;
 
     if (all_photos.length > 0) {
       /* Title and upload button */
@@ -218,6 +224,19 @@ class PhotoGrid extends React.Component {
                   this.setState({modalOpen: false})
                 }}>Cancel</Button>
             </Col>
+          </ModalFooter>
+        </Modal>
+        <Modal sm="true" isOpen={confirmOpen}>
+          <ModalHeader>
+            {confirmHeader}
+          </ModalHeader>
+          <ModalBody>
+            {confirmBody}
+          </ModalBody>
+          <ModalFooter>
+          <Button className="form_button" onClick={() => {
+            this.setState({confirmOpen: false});
+          }}>Close</Button>
           </ModalFooter>
         </Modal>
       </Container>);
