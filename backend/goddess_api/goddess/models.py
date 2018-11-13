@@ -5,11 +5,18 @@ from django.utils import timezone
 from ckeditor.fields import RichTextField
 
 # Create your models here.
+class Tag(models.Model):
+    title = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.title
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField()
     pub_date = models.DateField('date published')
     visible = models.BooleanField(default=True)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     def __str__(self):
         return self.title

@@ -108,10 +108,10 @@ class PhotoGrid extends React.Component {
         method: 'POST',
         body: upload
       }).then((response) => {
-        if(response.status == 400) {
+        if(response.status === 400) {
           console.log('Bad request!');
           this.setState({confirmHeader: "Uh Oh! Upload Failed.", confirmBody: "Please check your info and try again."});
-        } else if (response.status == 201) {
+        } else if (response.status === 201) {
           console.log('Uploaded, awaiting approval!');
           this.setState({confirmHeader: "Upload success!", confirmBody: "Check back soon to see if your photo was approved!"});
         } else {
