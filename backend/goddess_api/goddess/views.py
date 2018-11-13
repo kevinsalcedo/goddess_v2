@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from .models import Post, File, Comment
-from .serializers import PostSerializer, FileSerializer, CommentSerializer
+from .models import Post, File, Comment, Tag
+from .serializers import PostSerializer, FileSerializer, CommentSerializer, TagSerializer
 
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
@@ -62,3 +62,7 @@ class ListFile(generics.ListAPIView):
 class DetailFile(generics.RetrieveAPIView):
     queryset = File.objects.all()
     serializer_class = FileSerializer
+
+class ListTags(generics.ListAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer

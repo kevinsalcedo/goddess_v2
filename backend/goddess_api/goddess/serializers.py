@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, File, Comment
+from .models import Post, File, Comment, Tag
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -8,7 +8,8 @@ class PostSerializer(serializers.ModelSerializer):
                 'title',
                 'content',
                 'pub_date',
-                'visible'
+                'visible',
+                'tags'
                 )
         model = Post
 
@@ -35,3 +36,11 @@ class FileSerializer(serializers.ModelSerializer):
         'visible'
         )
         model = File
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        fields = (
+        'id',
+        'title'
+        )
+        model = Tag

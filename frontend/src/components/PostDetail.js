@@ -14,11 +14,21 @@ var current_endpoint = local;
 class PostDetail extends React.Component {
 
   state = {
-    post: {}
+    post: {},
+    tagList: {}
   };
 
   async componentDidMount() {
-    this.updateData();
+    fetch('http://127.0.0.1:8000/api/tags')
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      this.setState({tagList: response});
+    })
+    .then(() => {
+      this.updateData();
+    });
   }
 
   // Hit API for the appropriate post
@@ -50,24 +60,31 @@ class PostDetail extends React.Component {
 
   render() {
     const postContent = this.state.post.content;
-    return (<Container className="content-body">
-      <Row>
-        <Col>
-          <Card className="Post">
-            <h1>{this.state.post.title}</h1>
-            <h4>{this.state.post.pub_date}</h4>
-            <hr/>
-            <div className="post-content" dangerouslySetInnerHTML={{
-                __html: postContent
-              }}></div>
-          </Card>
-        </Col>
-      </Row>
-      <hr/>
-      <Row>
-        <Comment />
-      </Row>
-    </Container>);
+    const tagList = this.state.tagList;
+    if(this.state.post.hasOwnProperty('id')) {
+      return (<Container className="content-body">
+        <Row>
+          <Col>
+            <Card className="Post">
+              <h1>{this.state.post.title}</h1>
+              <h4>{this.state.post.pub_date}</h4>
+              <hr/>
+              <div className="post-content" dangerouslySetInnerHTML={{
+                  __html: postContent
+                }}></div>
+              <hr/>
+            </Card>
+          </Col>
+        </Row>
+        <hr/>
+        <Row>
+          <Comment />
+        </Row>
+      </Container>);
+    } else {
+      return null;
+    }
+
   }
 }
 

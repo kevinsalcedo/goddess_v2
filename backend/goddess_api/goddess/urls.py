@@ -10,4 +10,5 @@ urlpatterns = [
         path('blog_comment/', views.ListComment.as_view()),
         path('photos/', views.ListFile.as_view()),
         path('photos/<int:pk>/', views.DetailFile.as_view()),
+        path('tags/', views.ListTags.as_view()),
         ]
