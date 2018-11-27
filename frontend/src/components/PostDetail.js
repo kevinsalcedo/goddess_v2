@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Row, Col, Card} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 import Comment from './Comment.js';
 
@@ -73,6 +74,18 @@ class PostDetail extends React.Component {
                   __html: postContent
                 }}></div>
               <hr/>
+              <Row>
+              <Col sm={2}>
+              <h4>Tags:</h4>
+              </Col>
+              <Col>
+              <p>
+              {this.state.post.tags.length === 0 ? <span>No tags</span> : this.state.post.tags.map(tag => (
+                <Link className="link" to="#"><span>{(this.state.tagList.find(obj => obj.id === tag)).title}</span> </Link>
+              ))}
+              </p>
+              </Col>
+              </Row>
             </Card>
           </Col>
         </Row>

@@ -7,12 +7,14 @@
 .post-content {
   font-size: 105%;
 }
-.post-content a {
+.post-content a, .link {
   text-decoration: none;
+  text-decoration-color: #587D71;
   color: #587D71;
 }
 
-.post-content a:hover {
+.post-content a:hover, .link:hover {
   text-decoration: none;
+  text-decoration-color: #ACC8B9;
   color: #ACC8B9;
 }
