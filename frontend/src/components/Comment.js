@@ -7,8 +7,8 @@ const local = 'http://127.0.0.1:8000/api/blog_comment/';
 const upload_api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/comment/';
 const upload_local = 'http://127.0.0.1:8000/api/comment/';
 
-var current_endpoint = local;
-var current_upload = upload_local;
+var current_endpoint = api;
+var current_upload = upload_api;
 
 class Comment extends React.Component {
 

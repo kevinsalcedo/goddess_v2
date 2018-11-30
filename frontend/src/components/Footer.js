@@ -15,7 +15,7 @@ import '../css/Footer.css';
 const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true&ordering=-pub_date'
 const local = 'http://127.0.0.1:8000/api/blog/?visible=true&ordering=-pub_date';
 
-var current_endpoint = local;
+var current_endpoint = api;
 
 class Footer extends React.Component {
 
