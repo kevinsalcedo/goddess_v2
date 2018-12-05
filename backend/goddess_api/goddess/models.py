@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class Tag(models.Model):
@@ -13,7 +14,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    content = RichTextField()
+    content = RichTextUploadingField()
     pub_date = models.DateField('date published')
     visible = models.BooleanField(default=True)
     tags = models.ManyToManyField(Tag, blank=True)
