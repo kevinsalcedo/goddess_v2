@@ -33,7 +33,7 @@ const post_live = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/
 const post_local = 'http://127.0.0.1:8000/api/upload/';
 
 var current_endpoint = api;
-var current_post = post_local;
+var current_post = post_live;
 
 class PhotoGrid extends React.Component {
   constructor(props) {
