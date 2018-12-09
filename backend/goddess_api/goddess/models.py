@@ -46,4 +46,4 @@ class File(models.Model):
     visible = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.src.url
+        return self.src.url.split("media/",1)[1]

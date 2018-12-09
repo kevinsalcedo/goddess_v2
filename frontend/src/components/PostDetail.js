@@ -13,7 +13,7 @@ const local = 'http://127.0.0.1:8000/api/blog/';
 const tag_api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/tags';
 const tag_local = 'http://127.0.0.1:8000/api/tags';
 
-var current_endpoint = api;
+var current_endpoint = local;
 var current_tag = tag_api;
 
 class PostDetail extends React.Component {
@@ -77,6 +77,7 @@ class PostDetail extends React.Component {
               <div className="post-content" dangerouslySetInnerHTML={{
                   __html: postContent
                 }}></div>
+              {console.log(postContent)}
               <hr/>
               <Row>
               <Col sm={2}>
