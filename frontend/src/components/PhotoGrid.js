@@ -160,18 +160,19 @@ class PhotoGrid extends React.Component {
                 <CardText className="card-text">{photo.caption}</CardText>
               </CardBody>
 
-              {/* Popup lightbox viewer when image card is clicked */}
-              <ImgsViewer imgs={[{
+              
+            </Card>))
+          }
+        </CardColumns>
+        {/* Popup lightbox viewer when image card is clicked */}
+        <ImgsViewer imgs={[{
                     src: currPhoto.src,
                     caption: currPhoto.caption
                   }
                 ]} showImgCount={false} width={960} isOpen={isOpen} onClose={() => {
-                  this.handleViewer(photo)
+                  this.handleViewer(currPhoto)
                 }}/>
-            </Card>))
-          }
-        </CardColumns>
-
+        {console.log(currPhoto)}
         {/* Modal pop up for image uploading */}
         <Modal sm="true" isOpen={modalOpen}>
           <ModalHeader>

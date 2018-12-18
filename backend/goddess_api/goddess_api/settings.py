@@ -144,9 +144,9 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-MEDIA_URL = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
-CKEDITOR_UPLOAD_PATH = "uploads"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_RESTRICT_BY_USER = True
