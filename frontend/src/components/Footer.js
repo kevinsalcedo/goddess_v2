@@ -40,7 +40,7 @@ class Footer extends React.Component {
       }).then((response) => {
         this.setState({recent_posts: response});
       });
-      window.scrollTo(0,0);
+      // window.scrollTo(0,0);
     } catch (e) {
       console.log(e);
     }
