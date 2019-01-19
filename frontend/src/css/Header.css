@@ -4,7 +4,7 @@
   background-color: white;
   min-height: 5em;
   box-shadow: 0 0 5px 0 gray;
-
+  
 }
 
 .navbar-nav {
@@ -17,7 +17,14 @@
   font-weight: bold;
 }
 
+.header-logo {
+  display: flex;
+  align-items: center;
+}
 
+.brand-logo {
+  height: 5em;
+}
 
 /* Medium Devices */
 
@@ -26,23 +33,23 @@
     color: white;
   }
 
-  .header-brand:hover {
-    font-size: 105%;
-  }
-
-  .header-link:hover {
-    border-bottom: 3px solid white;
+  .nav-item:hover {
+    border-bottom: 2px solid white;
+    background: rgba(100, 93, 129, 0.5);
   }
 
   .navbar {
-    background: transparent;
+    background:rgb(62, 58, 82);
+    opacity: 0.9;
     box-shadow: 0 0 0 0;
+    height: 2em;
   }
+
   .header-img {
-    background-image: url('../assets/header-crop.jpg');
+    background-image: url('../assets/jd-new.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 20em;
+    min-height: 25em;
     box-shadow: 0 0 5px 0 gray;
   }
 }

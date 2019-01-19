@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import logo01 from '../assets/goddess-climbing-logo-01.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Header.css';
 
@@ -27,12 +28,12 @@ class Header extends React.Component {
   }
   render() {
     return (
-  <div className="header-img">
-    <Navbar navbar-fixed-top="true" light expand='md'>
-      <NavbarBrand href='/'>
-        <span className="header-item header-brand">Goddess Climbing</span>
+  <div>
+    <Navbar className="navbar fixed-top light" light expand='md'>
+      <NavbarBrand className="navbar-brand header-logo" href='/'>
+        <img className="brand-logo" src={logo01}  alt="goddess-climbing-logo-01"/>
       </NavbarBrand>
-      <NavbarToggler onClick={this.toggle}/>
+      <NavbarToggler className="ml-auto" onClick={this.toggle}/>
       <Collapse isOpen={this.state.isOpen} navbar>
         <Nav className='ml-auto' navbar>
           <NavItem>
@@ -50,12 +51,15 @@ class Header extends React.Component {
               <span className="header-item header-link">Photos</span>
             </NavLink>
           </NavItem>
-          <NavLink href='/about'>
-            <span className="header-item header-link">About</span>
-          </NavLink>
+          <NavItem>
+            <NavLink href='/about'>
+              <span className="header-item header-link">About</span>
+            </NavLink>
+          </NavItem>
         </Nav>
       </Collapse>
     </Navbar>
+    <div className="header-img" />
   </div>);
   }
 }

@@ -52,7 +52,7 @@ class Footer extends React.Component {
       <div className="footer">
         <hr />
         <Row>
-        <Col xs="12" md="4" className="info-col-1">
+        <Col xs="12" md="6" className="info-col-1">
           <h4 className="recents">Recent Posts</h4>
           {this.state.recent_posts.map(post =>
             <div key={post.id}>
@@ -60,7 +60,7 @@ class Footer extends React.Component {
             </div>
           )}
         </Col>
-        <Col xs="12" md="8" className="info-col-2">
+        <Col xs="12" md="6" className="info-col-2">
           <h4 className="recents">Sign Up for Our Newsletter</h4>
           <Form action="https://goddessclimbing.us19.list-manage.com/subscribe/post?u=a3ef7908a1a1d9b51024e6291&amp;id=8a42b55b15" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
             <FormGroup>
