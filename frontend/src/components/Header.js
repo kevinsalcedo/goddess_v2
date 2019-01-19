@@ -8,7 +8,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import logo01 from '../assets/goddess-climbing-logo-01.png';
+import logo01 from '../assets/goddess-climbing-WHITE-01.png';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Header.css';
 

@@ -14,6 +14,9 @@ body {
 	font-size: 14px !important;
   font-family: Poly;
 }
+body {
+	padding-top: 6em;
+}
 h1 {
 	font-size: 1.602em;
   font-family: Poly;
@@ -71,6 +74,9 @@ h6 {
 }
 
 @media (min-width: 48em) {
+	body {
+		padding-top: 0;
+	}
 	h1 {
 	  font-size: 2.441em;
     font-family: Poly;
@@ -110,12 +116,18 @@ h6 {
 	body {
 		font-size: 16px !important;
 	}
+	body {
+		padding-top: 0;
+	}
 }
 
 @media (min-width: 75em) {
 	html,
 	body {
 		font-size: 18px !important;
+	}
+	body {
+		padding-top: 0;
 	}
 }
 
