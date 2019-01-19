@@ -4,11 +4,7 @@ import {Container, Col, Row, Input } from 'reactstrap';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostList.css';
-
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true&ordering=';
-const local = 'http://127.0.0.1:8000/api/blog/?visible=true&ordering=';
-
-var current_endpoint = api;
+import global_endpoint from './global_endpoint.js';
 
 class PostList extends React.Component {
 
@@ -28,7 +24,7 @@ class PostList extends React.Component {
   }
 
   updateData = () => {
-    const link = current_endpoint + this.state.sortOrder;
+    const link = global_endpoint + "/api/blog/?visible=true&ordering=" + this.state.sortOrder;
     try {
       fetch(link)
       .then((response) => {

@@ -25,15 +25,7 @@ import Error404 from './error404';
 import ImgsViewer from 'react-images-viewer';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PhotoGrid.css';
-
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/photos/?visible=true';
-const local = 'http://127.0.0.1:8000/api/photos/?visible=true';
-
-const post_live = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/upload/';
-const post_local = 'http://127.0.0.1:8000/api/upload/';
-
-var current_endpoint = api;
-var current_post = post_live;
+import global_endpoint from "./global_endpoint.js";
 
 class PhotoGrid extends React.Component {
   constructor(props) {
@@ -64,7 +56,7 @@ class PhotoGrid extends React.Component {
   /* Fetches all visible photos from the api */
   updateData = () => {
     try {
-      fetch(current_endpoint).then((response) => {
+      fetch(global_endpoint + "/api/photos/?visible=true").then((response) => {
         return response.json();
       }).then((response) => {
         this.setState({all_photos: response});
@@ -104,7 +96,7 @@ class PhotoGrid extends React.Component {
     const upload = this.state.upload;
 
     try {
-      fetch(current_post, {
+      fetch(global_endpoint + "/api/upload/", {
         method: 'POST',
         body: upload
       }).then((response) => {

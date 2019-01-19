@@ -1,20 +1,12 @@
 import React from 'react';
 import {Container, Row, Col, Card} from 'reactstrap';
 import {Link} from 'react-router-dom';
+import global_endpoint from './global_endpoint.js';
 
 import Comment from './Comment.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/PostDetail.css';
-
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/';
-const local = 'http://127.0.0.1:8000/api/blog/';
-
-const tag_api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/tags';
-const tag_local = 'http://127.0.0.1:8000/api/tags';
-
-var current_endpoint = api;
-var current_tag = tag_api;
 
 class PostDetail extends React.Component {
 
@@ -24,7 +16,7 @@ class PostDetail extends React.Component {
   };
 
   async componentDidMount() {
-    fetch(current_tag)
+    fetch(global_endpoint + "/api/tags")
     .then((response) => {
       return response.json();
     })
@@ -40,7 +32,7 @@ class PostDetail extends React.Component {
   updateData = () => {
     try {
       const postId = (this.props.location.pathname).split("/blog/").pop();
-      fetch(current_endpoint + `${postId}/`)
+      fetch(global_endpoint + `/api/blog/${postId}/`)
       .then((response) => {
         return response.json();
       })

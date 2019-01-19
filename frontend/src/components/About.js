@@ -1,14 +1,10 @@
 import React from 'react';
 import {Container, Row, Col, Card, CardImg} from 'reactstrap';
 import about_grace from '../assets/About_Grace.jpg';
+import global_endpoint from './global_endpoint.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/About.css';
-
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/9/'
-const local = 'http://127.0.0.1:8000/api/blog/9/';
-
-var current_endpoint = api;
 
 class About extends React.Component {
 
@@ -18,7 +14,7 @@ class About extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(current_endpoint);
+      const res = await fetch(global_endpoint + "/api/blog/9");
       const about = await res.json();
       this.setState({about});
     } catch (e) {

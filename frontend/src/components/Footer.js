@@ -11,11 +11,7 @@ import {
 
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/Footer.css';
-
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog/?visible=true&ordering=-pub_date'
-const local = 'http://127.0.0.1:8000/api/blog/?visible=true&ordering=-pub_date';
-
-var current_endpoint = api;
+import global_endpoint from './global_endpoint.js';
 
 class Footer extends React.Component {
 
@@ -35,10 +31,10 @@ class Footer extends React.Component {
   // Hit API for all posts - need to make just 5 most recent
   updateData = () => {
     try {
-      fetch(current_endpoint).then((response) => {
+      fetch(global_endpoint + "/api/blog/?visible=true&ordering=-pub_date").then((response) => {
         return response.json();
       }).then((response) => {
-        this.setState({recent_posts: response});
+        this.setState({recent_posts: response.slice(0,5)});
       });
       // window.scrollTo(0,0);
     } catch (e) {

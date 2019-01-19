@@ -1,14 +1,6 @@
 import React from 'react';
 import { Container, Form, FormGroup, Input, Button, Card, CardText, CardTitle, Label, Col, Row } from 'reactstrap';
-
-const api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/blog_comment/';
-const local = 'http://127.0.0.1:8000/api/blog_comment/';
-
-const upload_api = 'http://goddess-env.5k5d6mwb3p.us-east-1.elasticbeanstalk.com/api/comment/';
-const upload_local = 'http://127.0.0.1:8000/api/comment/';
-
-var current_endpoint = api;
-var current_upload = upload_api;
+import global_endpoint from './global_endpoint.js';
 
 class Comment extends React.Component {
 
@@ -45,7 +37,7 @@ class Comment extends React.Component {
   submitComment(event) {
       const upload = this.state.upload;
       try {
-        fetch(current_upload, {
+        fetch(global_endpoint + "/api/comment/", {
           method: 'POST',
           body: upload
         }).then((response) => {
@@ -60,7 +52,7 @@ class Comment extends React.Component {
   updateData = () => {
     try {
       const postId = (window.location.href).split("/blog/").pop();
-      fetch(current_endpoint + `?post=${postId}`)
+      fetch(global_endpoint + `/api/blog_comment/?post=${postId}`)
       .then((response) => {
         return response.json();
       })
